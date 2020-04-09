@@ -1,8 +1,8 @@
-<p>Hello {{ user.firstname }} {{ user.lastname }}</p>
+<p>Hello {{ user.firstName }} {{ user.lastName }}</p>
 
 <input type="email" [(ngModel)]="user.email" disabled />
-<input type="text" [(ngModel)]="user.firstname" />
-<input type="text" [(ngModel)]="user.lastname" />
+<input type="text" [(ngModel)]="user.firstName" disabled/>
+<input type="text" [(ngModel)]="user.lastName" disabled/>
 <input type="password" [(ngModel)]="password.reference" />
 <input type="password" [(ngModel)]="password.confirmation" />
 
