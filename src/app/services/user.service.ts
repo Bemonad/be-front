@@ -28,9 +28,8 @@ export class UserService {
       })
     };
 
-    console.log('registering', user, password);
     const body = {firstName: user.firstName, lastName: user.lastName, password, token: user.token};
 
-    return this.http.put(`http://localhost:3001/api/users`, body, httpOptions);
+    return this.http.put<UserData>(`http://localhost:3001/api/users`, body, httpOptions);    
   }
 }

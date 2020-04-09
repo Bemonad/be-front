@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
     confirmation: string;
   };
 
-  constructor(private route: ActivatedRoute, private userService: UserService) {
+  constructor(private route: ActivatedRoute, private userService: UserService, private router: Router) {
     this.password = {
       reference: '',
       confirmation: ''
@@ -42,7 +42,11 @@ export class RegisterComponent implements OnInit {
     if (!this.checkPassword()) {
       console.error("Passwords don't match");
     }
-
-    this.userService.register(this.user, this.password.reference).subscribe(response => console.log(response));
+    
+    console.log('PDADAZDAD')
+    this.userService.register(this.user, this.password.reference).subscribe((ntm) => {
+      console.log('ENCUL2', ntm)
+      this.router.navigate(['/login']);
+    });
   }
 }
