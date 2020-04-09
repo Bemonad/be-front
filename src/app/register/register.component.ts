@@ -31,23 +31,18 @@ export class RegisterComponent implements OnInit {
     this.id = this.route.snapshot.params["id"];
     this.userService.getUser(this.id).subscribe( data => {
       this.user = data;
-      console.log(data);
     } );
   }
 
   checkPassword() {
-    if (this.password.reference !== this.password.confirmation) {
-     return false;
-    } else {
-      return true;
-    }
+    return this.password.reference === this.password.confirmation;
   }
 
   register() {
     if (!this.checkPassword()) {
-      console.error("Passwords don't match")
+      console.error("Passwords don't match");
     }
 
-    this.userService.register(this.user, this.password.reference);
+    this.userService.register(this.user, this.password.reference).subscribe(response => console.log(response));
   }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 interface UserData {
   firstName: string;
@@ -22,11 +22,15 @@ export class UserService {
   }
 
   register(user, password) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+
     console.log('registering', user, password);
-    const body = {firstName: user.firstname, lastName: user.lastname, password};
-    console.log(body);
-    axios.put(`http://localhost:3001/api/users/${user.id}`, body).then(response => {
-      console.log('Api response:', response);
-    });
+    const body = {firstName: user.firstName, lastName: user.lastName, password, token: user.token};
+
+    return this.http.put(`http://localhost:3001/api/users`, body, httpOptions);
   }
 }
