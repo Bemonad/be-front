@@ -1,0 +1,49 @@
+@mixin smartphone {
+  @media (max-width: #{$smarphone-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin smartphoneTablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+/* This helps to convert a frozen pixel font size to a screen sensitive font size */
+@mixin dynamic-font-size($pxSize) {
+  font-size: calc(#{$pxSize}px + 0.9vw);
+}
+
+/* This generate spacing classes */
+
+@mixin offset {
+  @for $i from 1 through 10 {
+    .t-offset-#{$i} {
+      margin-top: ($spacing-basis * $i) !important;
+    }
+    .r-offset-#{$i} {
+      margin-right: ($spacing-basis * $i) !important;
+    }
+    .b-offset-#{$i} {
+      margin-bottom: ($spacing-basis * $i) !important;
+    }
+    .l-offset-#{$i} {
+      margin-left: ($spacing-basis * $i) !important;
+    }
+  }
+}
+
+@include offset;
