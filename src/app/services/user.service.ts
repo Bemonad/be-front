@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 interface UserData {
   _id: string;
@@ -19,7 +20,7 @@ export class UserService {
   apiUrl: string;
   httpOptionsJson: object;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
     this.apiUrl = environment.API_URL;
     this.httpOptionsJson = {
       headers: new HttpHeaders({
@@ -48,5 +49,13 @@ export class UserService {
   finalCheckIn(user) {
     this.user = user;
     localStorage.setItem('access_token', this.user.token);
+  }
+
+  isAuthenticated() {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      return !this.jwtHelper.isTokenExpired(token);
+    }
+    return false;
   }
 }

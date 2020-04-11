@@ -10,6 +10,11 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor} from './interceptors/token.interceptor';
+import { JwtModule } from '@auth0/angular-jwt';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 @NgModule({
   declarations: [
@@ -21,6 +26,11 @@ import { AuthInterceptor} from './interceptors/token.interceptor';
   imports: [
     BrowserModule,
     HttpClientModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter
+      }
+    }),
     AppRoutingModule,
     FormsModule,
   ],
