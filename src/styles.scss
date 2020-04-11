@@ -2,7 +2,6 @@
 /* NOTE: Every files in src/styles can be import with just its name. For example _vars.scss can be imported with @import "vars"  */
 
 @import "vars";
-@import "mixins";
 
 *  {
   box-sizing: border-box;
@@ -12,4 +11,19 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
+}
+
+html{
+  background-color:$nearWhite;
+  font-size: 62.5%;
+}
+
+body{
+  max-width:$site-container-width;
+  margin:0 auto;
+  border-left:1px solid $lightestGrey;
+  border-right:1px solid $lightestGrey;
+	font-size: 1.5rem;
 }

@@ -1,3 +1,5 @@
+@import "vars";
+
 @mixin smartphone {
   @media (max-width: #{$smarphone-width}) {
     @content;
@@ -10,25 +12,39 @@
   }
 }
 
-@mixin smartphoneTablet {
-  @media (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
 @mixin desktop {
   @media (min-width: #{$desktop-width}) {
     @content;
   }
 }
 
-/* This helps to convert a frozen pixel font size to a screen sensitive font size */
-@mixin dynamic-font-size($pxSize) {
-  font-size: calc(#{$pxSize}px + 0.9vw);
+@mixin font-size(
+  $pxValueXs,
+  $pxValueMd: $pxValueXs * 1.1,
+  $pxValueLg: $pxValueXs * 1.2
+) {
+  @if ($pxValueXs < $minimumFontSize) {
+    $pxValueXs: $pxValueLg;
+  }
+  $remValueXs: $pxValueXs / 10;
+  font-size: #{$remValueXs}rem;
+
+  @include tablet() {
+    @if ($pxValueMd < $minimumFontSize) {
+      $pxValueMd: $pxValueLg;
+    }
+
+    $remValueMd: $pxValueMd / 10;
+    font-size: #{$remValueMd}rem;
+  }
+
+  @include desktop() {
+    $remValueLg: $pxValueLg / 10;
+    font-size: #{$remValueLg}rem;
+  }
 }
 
 /* This generate spacing classes */
-
 @mixin offset {
   @for $i from 1 through 10 {
     .t-offset-#{$i} {
