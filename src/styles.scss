@@ -1,7 +1,7 @@
-/* You can add global styles to this file, and also import other style files */
 /* NOTE: Every files in src/styles can be import with just its name. For example _vars.scss can be imported with @import "vars"  */
 
 @import "vars";
+@import "mixins";
 
 *  {
   box-sizing: border-box;
@@ -13,6 +13,7 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 html{
@@ -25,5 +26,5 @@ body{
   margin:0 auto;
   border-left:1px solid $lightestGrey;
   border-right:1px solid $lightestGrey;
-	font-size: 1.5rem;
+  @include font-size(14, 14, 14)
 }
