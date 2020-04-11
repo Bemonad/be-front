@@ -1,1 +1,9 @@
-<div id="#homeContainer"></div>
+<div id="#homeContainer">
+  <div *ngFor="let room of rooms">
+    <p>{{room.name}}</p>
+    <p>{{room.description}}</p>
+    <p>{{room.capacity_sit}}</p>
+    <p>{{room.capacity_stand}}</p>
+    <a [routerLink]="['/room']" [queryParams]="{id: room._id}">Voir la salle</a>
+  </div>
+</div>
