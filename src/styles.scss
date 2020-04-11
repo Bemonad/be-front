@@ -17,14 +17,14 @@ body {
 }
 
 html{
-  background-color:$nearWhite;
+  background-color:$near-white;
   font-size: 62.5%;
 }
 
 body{
   max-width:$site-container-width;
   margin:0 auto;
-  border-left:1px solid $lightestGrey;
-  border-right:1px solid $lightestGrey;
+  border-left:1px solid $lightest-grey;
+  border-right:1px solid $lightest-grey;
   @include font-size(14, 14, 14)
 }

@@ -1,19 +1,18 @@
 // Colors
-$nearBlack: #0d0d0d;
-$nearWhite: #f6f6f7;
+$near-black: #0d0d0d;
+$near-white: #f6f6f7;
 
-$lightestGrey: #dedede;
-$lightGrey: #c8c8c8;
+$lightest-grey: #dedede;
+$light-grey: #ccc;
 $grey: #b3b3b3;
-$darkGrey: #707070;
-$darkestGrey: #3e3e3e;
+$dark-grey: #707070;
+$darkest-grey: #3e3e3e;
 
-$darkBlue: #31374a;
-
-$red: #ea3c2c;
+$bemonad-green: #06d6a0;
+$bemonad-yellow: #fffa8b;
 
 // Globals
-$navHeight: 80px;
+$nav-height: 80px;
 $site-container-width: 1440px;
 
 $spacing-basis: 4px;
@@ -23,3 +22,5 @@ $tablet-width: 768px;
 $desktop-width: 992px;
 
 $minimumFontSize: 14;
+
+$default-border-radius: 10px;

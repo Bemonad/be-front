@@ -1,5 +1,6 @@
 @import "vars";
 
+/* smartphone tablet and desktop mixins help to write media queries */
 @mixin smartphone {
   @media (max-width: #{$smarphone-width}) {
     @content;
@@ -18,6 +19,13 @@
   }
 }
 
+/* Generate a skewmorphic shadow. Both params are optionnal.  */
+@mixin skewmorphic-shadow($left-color: $near-white, $right-color: $grey) {
+  box-shadow: -9px -9px 16px $left-color, 9px 9px 16px $right-color;
+}
+
+/* It will adapt font size according to the screen type dynamically. It can also be set manually.  */
+/* usage: @include font-size(mobilePx, tabletPx?, desktopPx?)  */
 @mixin font-size(
   $pxValueXs,
   $pxValueMd: $pxValueXs * 1.1,

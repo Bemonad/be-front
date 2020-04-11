@@ -1,1 +1,11 @@
+<nav id="navContainer">
+  <div class="burger-container" (click)="toggleMobileMenu()">
+    <div class="burger-content" [ngClass]="{'cross': mobileNav.isOpen === true}"></div>
+  </div>  
+
+  <div class="mobile-nav-container" [ngClass]="{'opened': mobileNav.isOpen === true}">
+    Mobile menu content
+  </div>
+</nav>
+
 <router-outlet></router-outlet>
