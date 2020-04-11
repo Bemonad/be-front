@@ -11,6 +11,9 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor} from './interceptors/token.interceptor';
 import { JwtModule } from '@auth0/angular-jwt';
+import { RoomComponent } from './components/room/room.component';
+import { BookingComponent } from './components/booking/booking.component';
+import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -21,7 +24,10 @@ export function tokenGetter() {
     AppComponent,
     RegisterComponent,
     HomeComponent,
-    LoginComponent
+    LoginComponent,
+    RoomComponent,
+    BookingComponent,
+    MyBookingsComponent
   ],
   imports: [
     BrowserModule,
