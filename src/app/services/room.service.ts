@@ -12,4 +12,8 @@ export class RoomService {
   getAllRooms() {
     return this.http.get(`${environment.API_URL}/rooms`);
   }
+
+  getRoom(id) {
+    return this.http.get(`${environment.API_URL}/rooms/${id}`);
+  }
 }

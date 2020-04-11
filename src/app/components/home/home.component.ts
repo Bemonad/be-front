@@ -7,7 +7,7 @@ import { RoomService } from '../../services/room.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  private rooms: object;
+  public rooms: any;
 
   constructor(private roomService: RoomService) { }
 
