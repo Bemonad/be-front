@@ -3,19 +3,21 @@ import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
+import { AuthGardService} from './services/auth-gard.service';
 
 const routes: Routes = [
   {
     path: 'register/:id',
-    component: RegisterComponent
+    component: RegisterComponent,
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
   },
   {
     path: '',
-    component: HomeComponent
+    component: HomeComponent,
+    // canActivate: [AuthGardService] : Example
   }
 ];
 
