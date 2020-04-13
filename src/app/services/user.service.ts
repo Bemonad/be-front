@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 interface UserData {
   _id: string;
@@ -16,23 +18,28 @@ interface UserData {
   providedIn: 'root'
 })
 export class UserService {
-  user: UserData;
+  private user: UserData;
   apiUrl: string;
   httpOptionsJson: object;
+  currentUser: BehaviorSubject<any>;
 
-  constructor(private http: HttpClient, public jwtHelper: JwtHelperService) {
+  constructor(private http: HttpClient, public jwtHelper: JwtHelperService, private router: Router) {
     this.apiUrl = environment.API_URL;
     this.httpOptionsJson = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json'
       })
     };
+    this.currentUser = new BehaviorSubject<any>(null);
   }
 
   getUser(jwt) {
-    // @TODO: Use env var for base URL
-    return this.http.get<UserData>(`${this.apiUrl}/users/${jwt}`);
-
+    const observableUser = this.http.get<UserData>(`${this.apiUrl}/users/${jwt}`);
+    observableUser.subscribe( user => {
+      this.user = user;
+      this.currentUser.next(user);
+    });
+    return observableUser;
   }
 
   register(user, password) {
@@ -42,13 +49,13 @@ export class UserService {
   }
 
   checkCredentials(loginData) {
-    console.log(loginData);
     return this.http.post(`${this.apiUrl}/users/login`, loginData, this.httpOptionsJson );
   }
 
   finalCheckIn(user) {
     this.user = user;
     localStorage.setItem('access_token', this.user.token);
+    this.router.navigate(['/']);
   }
 
   isAuthenticated() {
@@ -58,4 +65,9 @@ export class UserService {
     }
     return false;
   }
+
+  getCurrentUser(): Observable<any> {
+    return this.currentUser.asObservable();
+  }
+
 }

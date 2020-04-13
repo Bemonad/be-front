@@ -14,6 +14,7 @@ import { JwtModule } from '@auth0/angular-jwt';
 import { RoomComponent } from './components/room/room.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { UserService } from './services/user.service';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -49,4 +50,11 @@ export function tokenGetter() {
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(private userService: UserService) {
+    if (this.userService.isAuthenticated()) {
+      this.userService.getUser(tokenGetter());
+    }
+  }
+}

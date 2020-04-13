@@ -13,9 +13,8 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.roomService.getAllRooms().subscribe(rooms => {
-      console.log(rooms);
       this.rooms = rooms;
-    } );
+    });
   }
 
 }
