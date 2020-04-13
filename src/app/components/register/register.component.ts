@@ -28,10 +28,10 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.id = this.route.snapshot.params["id"];
+    this.id = this.route.snapshot.params.id;
     this.userService.getUser(this.id).subscribe( data => {
       this.user = data;
-    } );
+    });
   }
 
   checkPassword() {
@@ -40,12 +40,10 @@ export class RegisterComponent implements OnInit {
 
   register() {
     if (!this.checkPassword()) {
-      console.error("Passwords don't match");
+      console.error('Passwords don\'t match');
     }
-    
-    console.log('PDADAZDAD')
+
     this.userService.register(this.user, this.password.reference).subscribe((ntm) => {
-      console.log('ENCUL2', ntm)
       this.router.navigate(['/login']);
     });
   }
