@@ -1,3 +1,7 @@
+@import "mixins";
+
 #homeContainer {
-  
+  .subtitle {
+    @include font-size(22);
+  }
 }

@@ -1,10 +1,17 @@
-/* NOTE: Every files in src/styles can be import with just its name. For example _vars.scss can be imported with @import "vars"  */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+// NOTE: 400 regular, italic, 600 semi-bold, 700 bold. use .regular .italic, semi-bold and .bold classes instead of font-weight of font-style
 
+// NOTE: font-size = (font-size on figma) + 4
+
+/* NOTE: Every files in src/styles can be import with just its name. For example _vars.scss can be imported with @import "vars"  */
 @import "vars";
 @import "mixins";
 
-*  {
+// Reset
+* {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -14,7 +21,8 @@ body {
   height: 100%;
   width: 100%;
   overflow: hidden;
-  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  color: $near-black;
 }
 
 html {
@@ -30,6 +38,7 @@ body {
   @include font-size(14, 14, 14);
 }
 
+// Display
 .hide-xs {
   @include smartphone {
     display: none;
@@ -46,4 +55,33 @@ body {
   @include desktop {
     display: none;
   }
+}
+
+// Fonts
+.regular {
+  font-weight: 400;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.semi-bold {
+  font-weight: 600;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+// Structure
+.container {
+  width: 100%;
+  padding: 0 20px;
+}
+
+// style
+.main-title {
+  @include font-size(28);
+  padding: ($spacing-basis*20) 0 ($spacing-basis*10);
 }

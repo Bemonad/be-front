@@ -13,6 +13,5 @@ export class AppComponent {
 
   toggleMobileMenu = () => {
     this.mobileNav.isOpen = !this.mobileNav.isOpen;
-    console.log(this.mobileNav.isOpen);
   }
 }
