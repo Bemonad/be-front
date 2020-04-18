@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { UserService } from './user.service';
 
 export interface BookingData {
   user_id: any;
@@ -17,11 +18,16 @@ export interface BookingData {
 })
 export class BookingService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) {
+  }
 
   registerBook(bookData) {
     this.http.post(`${environment.API_URL}/bookings`, bookData).subscribe( response =>
       console.log(response)
     );
+  }
+
+  getMyBookings(user) {
+    return this.http.get(`${environment.API_URL}/bookings/?user=${user._id}`);
   }
 }

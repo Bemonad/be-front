@@ -29,6 +29,7 @@ const routes: Routes = [
   {
     path: 'my-bookings',
     component: MyBookingsComponent,
+    canActivate: [AuthGardService]
   },
   {
     path: '',
