@@ -6,7 +6,7 @@ export interface BookingData {
   user_id: any;
   id_room?: string;
   start?: number;
-  end?: string;
+  end?: number;
   sit?: boolean;
   video?: boolean;
   number_people?: number;

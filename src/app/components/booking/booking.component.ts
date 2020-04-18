@@ -21,12 +21,12 @@ export class BookingComponent implements OnInit {
     canSelectHour: boolean;
   }>;
   public startHour: string;
-  public half: boolean;
+  public half: string;
   public listHalf: Array<{
     value: boolean;
     label: string;
   }>;
-  public endHour: string;
+  public duration: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -38,17 +38,72 @@ export class BookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.arrayHours = [
-        {
-          time: '8',
-          canSelectHalf: true,
-          canSelectHour: true
-        },
-        {
-          time: '9',
-          canSelectHalf: true,
-          canSelectHour: true
-        }
-      ];
+      {
+        time: '8',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '9',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '10',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '11',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '12',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '13',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '14',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '15',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '16',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '17',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '18',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '19',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+      {
+        time: '20',
+        canSelectHalf: true,
+        canSelectHour: true
+      },
+    ];
     this.selectedDate = moment().startOf('day').valueOf();
 
     this.preselectedRoomId = this.route.snapshot.queryParamMap.get('roomFrom') ?
@@ -69,7 +124,7 @@ export class BookingComponent implements OnInit {
           user_id: user._id,
           id_room: '',
           start: null,
-          end: '',
+          end: null,
           sit: true,
           video: false,
           number_people: null,
@@ -90,19 +145,19 @@ export class BookingComponent implements OnInit {
     }
   }
 
-  parseHour(hourSelected, half) {
-    let getHour = moment(this.selectedDate).add(hourSelected, 'h');
+  parseHour(begin, hourSelected, half = 'false') {
+    let timestamp = moment(begin).add(hourSelected, 'h');
     if (half === 'true') {
-      getHour = getHour.add(30, 'm');
+      timestamp = timestamp.add(30, 'm');
     }
-    return getHour.millisecond(0).valueOf();
+    return timestamp.millisecond(0).valueOf();
   }
 
   book() {
-    this.currentBooking.start = this.parseHour(this.startHour, this.half);
-    console.log(this.currentBooking);
-    console.log(this.currentBooking.sit);
+    this.currentBooking.start = this.parseHour(this.selectedDate, this.startHour, this.half);
+    this.currentBooking.end = this.parseHour(this.currentBooking.start, this.duration);
+    // console.log(this.currentBooking);
 
-    // this.bookingService.registerBook(this.currentBooking);
+    this.bookingService.registerBook(this.currentBooking);
   }
 }

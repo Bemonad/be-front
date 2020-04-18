@@ -49,7 +49,7 @@
 </div>
 
 <div>
-  <select name="" id="" [(ngModel)]="endHour">
+  <select name="" id="" [(ngModel)]="duration">
     <option disabled selected>Durée</option>
     <option value="1">1h</option>
     <option value="2">2h</option>
@@ -76,6 +76,11 @@
 <!--    <option [value]="false">0</option>-->
 <!--    <option [value]="true" >30</option>-->
   </select>
+</div>
+
+<div>
+  <label for="video">Avez-vous besoin d'un vidéo projecteur ?</label>
+  <input id="video" type="checkbox" [(ngModel)]="currentBooking.video">
 </div>
 
 <button (click)="book()">Send</button>
