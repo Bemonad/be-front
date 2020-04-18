@@ -4,5 +4,6 @@
     <p>{{room.description}}</p>
     <p>{{room.capacity_sit}}</p>
     <p>{{room.capacity_stand}}</p>
+    <a [routerLink]="['/booking']" [queryParams]="{roomFrom: room._id}">Réserver cette salle</a>
   </div>
 </div>
