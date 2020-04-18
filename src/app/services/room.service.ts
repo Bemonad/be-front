@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 export interface RoomData {
+  _id: string;
   name: string;
   description: string;
   capacity_sit: string;

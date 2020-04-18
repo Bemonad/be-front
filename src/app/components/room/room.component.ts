@@ -13,6 +13,7 @@ export class RoomComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private roomService: RoomService) {
     this.room = {
+      _id: '',
       name: '',
       description: '',
       capacity_sit: '',

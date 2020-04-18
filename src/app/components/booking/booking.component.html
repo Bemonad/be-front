@@ -1,1 +1,81 @@
-<p>booking works!</p>
+<div>
+  <label for="salle">Salle</label>
+  <select *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.id_room">
+    <option disabled selected>Select a room</option>
+    <option
+      *ngFor="let room of rooms"
+      [value]="room._id"
+      [attr.selected]="room.selected">{{room.name}}</option>
+  </select>
+</div>
+
+<div>
+  <input type="date" id="date"
+         [ngModel]="selectedDate | date:'yyyy-MM-dd'"
+         (ngModelChange)="selectedDate = $event"
+         [value]="selectedDate"
+         >
+</div>
+
+<div>
+  <input
+    type="radio"
+    id="sit"
+    name="place"
+    [value]="true"
+    [(ngModel)]="currentBooking.sit"
+    checked
+  >
+  <label for="sit">Assis</label>
+</div>
+
+<div>
+  <input
+    type="radio"
+    id="stand"
+    name="place"
+    [value]="false"
+    [(ngModel)]="currentBooking.sit"
+  >
+  <label for="stand">Debout</label>
+</div>
+<div>
+  <input
+    type="text"
+    id="peopleNb"
+    [(ngModel)]="currentBooking.number_people"
+  >
+  <label for="peopleNb">Nombre de personnes</label>
+</div>
+
+<div>
+  <select name="" id="" [(ngModel)]="endHour">
+    <option disabled selected>Durée</option>
+    <option value="1">1h</option>
+    <option value="2">2h</option>
+    <option value="3">3h</option>
+  </select>
+</div>
+
+<div>
+  <select name="" id="" [(ngModel)]="startHour" (change)="filterHalf($event.target.value)">
+    <option disabled selected>Heure</option>
+    <option
+      *ngFor="let hour of arrayHours"
+      [value]="hour.time"
+      [attr.selected]="hour.selected">{{hour.time}}
+    </option>
+  </select>
+
+  <select name="" id="" [(ngModel)]="half">
+    <option
+      *ngFor="let getHalf of listHalf"
+      [value]="getHalf.value"
+      [attr.selected]="getHalf.selected">{{getHalf.label}}
+    </option>
+<!--    <option [value]="false">0</option>-->
+<!--    <option [value]="true" >30</option>-->
+  </select>
+</div>
+
+<button (click)="book()">Send</button>
