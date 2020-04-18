@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap");
 // NOTE: 400 regular, italic, 600 semi-bold, 700 bold. use .regular .italic, semi-bold and .bold classes instead of font-weight of font-style
 
 // NOTE: font-size = (font-size on figma) + 4
@@ -20,23 +20,46 @@ body {
   padding: 0;
   height: 100%;
   width: 100%;
-  overflow-x: hidden;
   font-family: "Open Sans", sans-serif;
-  color: $near-black;
+  color: $default-text-color;
 }
 
 html {
-  background-color: $near-white;
+  background-color: $lightest-grey;
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 
 body {
   max-width: $site-container-width;
   margin: 0 auto;
-  border-left: 1px solid $lightest-grey;
-  border-right: 1px solid $lightest-grey;
   @include font-size(14, 14, 14);
+  @media (min-width: #{$site-container-width}) {
+    border-left: 1px solid $light-grey;
+    border-right: 1px solid $light-grey;
+  }
 }
+
+h1 {
+  @include font-size(28);
+}
+
+h2 {
+  @include font-size(22);
+}
+
+h3 {
+  @include font-size(18);
+}
+
+img {
+  display: block; // removes white space
+  object-fit: cover;
+  width: 100%;
+}
+
+// Init link-style
+@include link-style($bemonad-blue);
 
 // Display
 .hide-xs {
@@ -81,7 +104,18 @@ body {
 }
 
 // style
-.main-title {
-  @include font-size(28);
-  padding: ($spacing-basis*20) 0 ($spacing-basis*10);
+.page-title {
+  padding: ($spacing-basis * 20) 0 ($spacing-basis * 10);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
 }

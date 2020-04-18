@@ -24,6 +24,20 @@
   box-shadow: -9px -9px 16px $left-color, 9px 9px 16px $right-color;
 }
 
+@mixin link-style($color) {
+  a, a:visited, a:focus, a:active {
+    transition: color .3s;
+    color: $color!important;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: darken($color, 10%);
+    text-decoration: underline;
+  }
+}
+
+
 /* It will adapt font size according to the screen type dynamically. It can also be set manually.  */
 /* usage: @include font-size(mobilePx, tabletPx?, desktopPx?)  */
 @mixin font-size(
@@ -52,22 +66,59 @@
   }
 }
 
-/* This generate spacing classes */
-@mixin offset {
-  @for $i from 1 through 10 {
-    .t-offset-#{$i} {
-      margin-top: ($spacing-basis * $i) !important;
+/* Generate spacing classes */
+@mixin spacing {
+  @for $i from 1 through 20 {
+    // Margins
+    .m-#{$i} {
+      margin: ($spacing-basis * $i) !important;
     }
-    .r-offset-#{$i} {
+    .mx-#{$i} {
+      margin-left: ($spacing-basis * $i) !important;
       margin-right: ($spacing-basis * $i) !important;
     }
-    .b-offset-#{$i} {
+    .my-#{$i} {
+      margin-top: ($spacing-basis * $i) !important;
       margin-bottom: ($spacing-basis * $i) !important;
     }
-    .l-offset-#{$i} {
+    .mt-#{$i} {
+      margin-top: ($spacing-basis * $i) !important;
+    }
+    .mr-#{$i} {
+      margin-right: ($spacing-basis * $i) !important;
+    }
+    .mb-#{$i} {
+      margin-bottom: ($spacing-basis * $i) !important;
+    }
+    .ml-#{$i} {
       margin-left: ($spacing-basis * $i) !important;
+    }
+
+    // Paddings
+    .p-#{$i} {
+      padding: ($spacing-basis * $i) !important;
+    }
+    .px-#{$i} {
+      padding-left: ($spacing-basis * $i) !important;
+      padding-right: ($spacing-basis * $i) !important;
+    }
+    .py-#{$i} {
+      padding-top: ($spacing-basis * $i) !important;
+      padding-bottom: ($spacing-basis * $i) !important;
+    }
+    .pt-#{$i} {
+      padding-top: ($spacing-basis * $i) !important;
+    }
+    .pr-#{$i} {
+      padding-right: ($spacing-basis * $i) !important;
+    }
+    .pb-#{$i} {
+      padding-bottom: ($spacing-basis * $i) !important;
+    }
+    .pl-#{$i} {
+      padding-left: ($spacing-basis * $i) !important;
     }
   }
 }
 
-@include offset;
+@include spacing;

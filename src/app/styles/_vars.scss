@@ -1,8 +1,8 @@
 // Colors
 $near-black: #0d0d0d;
-$near-white: #f6f6f7;
+$near-white: #f6f6f6;
 
-$lightest-grey: #dedede;
+$lightest-grey: #f2f2f2;
 $light-grey: #ccc;
 $grey: #b3b3b3;
 $dark-grey: #707070;
@@ -10,17 +10,19 @@ $darkest-grey: #333;
 
 $bemonad-green: #06d6a0;
 $bemonad-yellow: #fffa8b;
+$bemonad-blue: #0063b2;
 
 // Globals
 $nav-height: 80px;
 $site-container-width: 1440px;
 
-$spacing-basis: 4px;
+$spacing-basis: 8px;
 
 $smarphone-width: 767px;
 $tablet-width: 768px;
 $desktop-width: 992px;
 
 $minimumFontSize: 14;
+$default-text-color: $near-black;
 
 $default-border-radius: 10px;

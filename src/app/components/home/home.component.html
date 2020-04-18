@@ -1,10 +1,56 @@
-<div id="homeContainer" class="container">
-  <h1 class="main-title semi-bold">Bemonad,<br/><span class="subtitle">Réservez votre salle de coworking en un clic</span></h1>
-  <div *ngFor="let room of rooms">
-    <p>{{room.name}}</p>
-    <p>{{room.description}}</p>
-    <p>{{room.capacity_sit}}</p>
-    <p>{{room.capacity_stand}}</p>
-    <a [routerLink]="['/rooms']" [queryParams]="{id: room._id}">Voir la salle</a>
+<div id="homeContainer">
+  <div class="container">
+    <h1 class="page-title semi-bold">
+      Bemonad,<br />
+      <span class="subtitle">Réservez votre salle de coworking en un clic</span>
+    </h1>
+  </div>
+
+  <div class="main-banner">
+      <!-- @TODO: Maybe implement a slider here -->
+    <img src="assets/images/lemonade.jpg" alt="" />
+
+
+    <div class="container py-5">
+      <h2 class="banner-title semi-bold text-center">
+        Place des fêtes
+      </h2>
+      <p class="text-center mt-2">
+        Au coeur du 19ème arrondissment, Benomad vous propose 5 salles de coworking tout proche de la Place des Fêtes
+      </p>
+    </div>
+  </div>
+
+  <div class="container py-7 cards-container">
+    <div *ngFor="let room of rooms" class="card-item mb-7">
+      <img src="assets/images/lemonade.jpg" alt="Imade de la salle {{room.name}}" />
+      <div class="content p-2">
+        <h3 class="semi-bold mb-1">{{ room.name }}</h3>
+        <div class="capacities mb-1">
+          <div class="sit-capacity">
+            <img src="assets/icons/svg/chair-green.svg" class="card-icon mr-1"/>
+            <div class="capacity-text">
+              {{ room.capacity_sit }} places assises
+            </div>
+          </div>
+          <div class="stand-capacity">
+            <img src="assets/icons/svg/stand-green.svg" class="card-icon mr-1"/>
+            <div class="capacity-text">
+              {{ room.capacity_stand }} places debout
+            </div>
+          </div>
+        </div>
+        <p class="card-description mb-1">{{ room.description }}</p>
+        <div class="card-bottom-container">
+          <a [routerLink]="['/rooms']" [queryParams]="{ id: room._id }">Voir la salle</a>
+          <div *ngIf="currentUser" class="bold">
+            <a [routerLink]="['/booking']" class="booking-link">
+              Réserver
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
