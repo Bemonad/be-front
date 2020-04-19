@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-interface UserData {
+export interface UserData {
   _id: string;
   firstName: string;
   lastName: string;
@@ -69,6 +69,14 @@ export class UserService {
 
   getCurrentUser(): Observable<any> {
     return this.currentUser.asObservable();
+  }
+
+  getAllUsers() {
+    return this.http.get<Array<UserData>>(`${this.apiUrl}/users`);
+  }
+
+  createUser(body) {
+    return this.http.post(`${this.apiUrl}/users`, body, this.httpOptionsJson);
   }
 
 }

@@ -22,6 +22,7 @@ import { BemonadBookBannerComponent } from './components/bemonad-book-banner/bem
 import { NavComponent } from './components/nav/nav.component';
 
 import { UserService } from './services/user.service';
+import { UsersComponent } from './components/admin/users/users.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -40,7 +41,8 @@ export function tokenGetter() {
     BemonadCapacitiesComponent,
     BemonadCitationComponent,
     BemonadBookBannerComponent,
-    NavComponent
+    NavComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

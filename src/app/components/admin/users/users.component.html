@@ -1,0 +1,39 @@
+<h1>Tous les utilisateurs</h1>
+<button *ngIf="action === 'show'" (click)="changeAction('addUser')">Ajouter un utilisateur</button>
+
+<section *ngIf="action === 'show'">
+  <div *ngFor="let user of allUsers">
+    <span>{{ user.firstName }}</span>
+    <span>{{ user.lastName }}</span>
+    <span>{{ user.email }}</span>
+    <span>{{ user.role }}</span>
+<!--    <button>Modifier</button>-->
+  </div>
+</section>
+
+<section *ngIf="action === 'addUser'">
+  <div>
+    <div>
+      <label for="firstName">Prénom</label>
+      <input id="firstName" type="text" [(ngModel)]="addUser.firstName">
+    </div>
+    <div>
+      <label for="lastName">Nom</label>
+      <input id="lastName" type="text" [(ngModel)]="addUser.lastName">
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input id="email" type="text" [(ngModel)]="addUser.email">
+    </div>
+    <div>
+      <label for="role">Rome</label>
+      <select name="role" id="role" [(ngModel)]="addUser.role">
+        <option value="user" selected>Utilisateur</option>
+        <option value="admin">Admin</option>
+      </select>
+    </div>
+    <div>
+      <button (click)="addUserAction()">Ajouter</button>
+    </div>
+  </div>
+</section>
