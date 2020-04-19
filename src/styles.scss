@@ -64,19 +64,19 @@ img {
 // Display
 .hide-xs {
   @include smartphone {
-    display: none;
+    display: none !important;
   }
 }
 
 .hide-md {
   @include tablet {
-    display: none;
+    display: none !important;
   }
 }
 
 .hide-lg {
   @include desktop {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -101,6 +101,16 @@ img {
 .container {
   width: 100%;
   padding: 0 20px;
+}
+
+.desktop-nav-avoider {
+  @include desktop() {
+    padding-top: $desktop-nav-height;
+  }
+
+  @include tablet() {
+    padding-top: $desktop-nav-height;
+  }
 }
 
 // style

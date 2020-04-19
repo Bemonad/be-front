@@ -37,7 +37,6 @@
   }
 }
 
-
 /* It will adapt font size according to the screen type dynamically. It can also be set manually.  */
 /* usage: @include font-size(mobilePx, tabletPx?, desktopPx?)  */
 @mixin font-size(

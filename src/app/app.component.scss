@@ -1,7 +1,7 @@
 @import "vars";
 @import "mixins";
 
-#navContainer {
+#mobileNavContainer {
   width: 100%;
 
   .burger-container {
@@ -62,7 +62,7 @@
     }
   }
 
-  .mobile-nav-container {
+  .mobile-nav-content {
     transition: left 0.5s;
     position: fixed;
     z-index: 2;
@@ -78,4 +78,14 @@
       left: 20%;
     }
   }
+}
+
+#desktopTabletNavContainer {
+  position: fixed;
+  height: $desktop-nav-height;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $bemonad-yellow;
 }
