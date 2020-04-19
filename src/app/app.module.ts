@@ -4,16 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 
+import { JwtModule } from '@auth0/angular-jwt';
+import { AuthInterceptor} from './interceptors/token.interceptor';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
-import { AuthInterceptor} from './interceptors/token.interceptor';
-import { JwtModule } from '@auth0/angular-jwt';
 import { RoomComponent } from './components/room/room.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+import { BemonadFooterComponent } from './components/bemonad-footer/bemonad-footer.component';
+
 import { UserService } from './services/user.service';
 
 export function tokenGetter() {
@@ -28,7 +31,8 @@ export function tokenGetter() {
     LoginComponent,
     RoomComponent,
     BookingComponent,
-    MyBookingsComponent
+    MyBookingsComponent,
+    BemonadFooterComponent
   ],
   imports: [
     BrowserModule,
