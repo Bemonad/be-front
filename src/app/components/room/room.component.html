@@ -1,9 +1,15 @@
-<div>
-  <div *ngIf="room">
-    <p>{{room.name}}</p>
-    <p>{{room.description}}</p>
-    <p>{{room.capacity_sit}}</p>
-    <p>{{room.capacity_stand}}</p>
-    <a [routerLink]="['/booking']" [queryParams]="{roomFrom: room._id}">Réserver cette salle</a>
+<div id="roomContainer" *ngIf="room">
+  <h1 class="page-title semi-bold text-center">{{room.name}}</h1>
+
+  <div class="container">
+    <p class="mb-2">{{room.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum aliquid eaque voluptatum fugiat accusamus veniam consectetur sapiente necessitatibus provident in voluptas cupiditate animi eos corrupti blanditiis fuga eligendi, soluta error?</p>
+    <div class="mb-4">
+      <bemonad-capacities [centered]="true" [stand]="room.capacity_stand" [sit]="room.capacity_sit"></bemonad-capacities>
+    </div>
+    <div class="button-container mb-4">
+      <a *ngIf="currentUser" class="button" [routerLink]="['/booking']" [queryParams]="{roomFrom: room._id}">Réserver cette salle</a>
+      <a *ngIf="!currentUser" class="button">Demander un accès</a>
+    </div>
   </div>
+  <img src="assets/images/lemonade.jpg" alt="" /> <!-- felix@TODO: insert room image -->
 </div>

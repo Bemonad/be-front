@@ -62,8 +62,9 @@ li {
   list-style: none;
 }
 
-// Init link-style
-@include link-style($bemonad-blue);
+a {
+  @include link-style($bemonad-blue);
+}
 
 // Display
 .hide-xs {
@@ -119,7 +120,7 @@ li {
 
 // style
 .page-title {
-  padding: ($spacing-basis * 20) 0 ($spacing-basis * 10);
+  padding: ($spacing-basis * 10) 0 ($spacing-basis * 5);
 }
 
 .text-left {

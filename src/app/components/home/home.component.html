@@ -26,19 +26,8 @@
       <img src="assets/images/lemonade.jpg" alt="Imade de la salle {{room.name}}" />
       <div class="content p-2">
         <h3 class="semi-bold mb-1">{{ room.name }}</h3>
-        <div class="capacities mb-1">
-          <div class="sit-capacity">
-            <img src="assets/icons/svg/chair-green.svg" class="card-icon mr-1"/>
-            <div class="capacity-text">
-              {{ room.capacity_sit }} places assises
-            </div>
-          </div>
-          <div class="stand-capacity">
-            <img src="assets/icons/svg/stand-green.svg" class="card-icon mr-1"/>
-            <div class="capacity-text">
-              {{ room.capacity_stand }} places debout
-            </div>
-          </div>
+        <div class="mb-1">
+          <bemonad-capacities [stand]="room.capacity_stand" [sit]="room.capacity_sit"></bemonad-capacities>
         </div>
         <p class="card-description mb-1">{{ room.description }}</p>
         <div class="card-bottom-container">

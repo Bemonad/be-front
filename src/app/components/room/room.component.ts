@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { UserService } from '../../services/user.service';
 import { RoomService, RoomData } from '../../services/room.service';
 
 @Component({
@@ -10,8 +11,9 @@ import { RoomService, RoomData } from '../../services/room.service';
 export class RoomComponent implements OnInit {
   private roomId: string;
   public room: RoomData;
+  public currentUser: any;
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService) {
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private userService: UserService) {
     this.room = {
       _id: '',
       name: '',
@@ -25,6 +27,10 @@ export class RoomComponent implements OnInit {
     this.roomId = this.route.snapshot.queryParamMap.get('id');
     this.roomService.getRoom(this.roomId).subscribe( data => {
       this.room = data;
+    });
+
+    this.userService.getCurrentUser().subscribe(currentUser => {      
+      this.currentUser = currentUser;
     });
   }
 

@@ -1,0 +1,16 @@
+@import "mixins";
+@import "vars";
+
+#roomContainer {
+  .button-container {
+    text-align: center;
+
+    .button {
+      @include skewmorphic-shadow();
+      @include default-button();
+      @include no-link-style();
+      background-color: $bemonad-green;
+      display: inline-block;
+    }
+  }
+}
