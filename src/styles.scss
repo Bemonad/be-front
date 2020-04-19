@@ -58,6 +58,10 @@ img {
   width: 100%;
 }
 
+li {
+  list-style: none;
+}
+
 // Init link-style
 @include link-style($bemonad-blue);
 
@@ -100,7 +104,7 @@ img {
 // Structure
 .container {
   width: 100%;
-  padding: 0 20px;
+  padding: 0 $spacing-basis * 2;
 }
 
 .desktop-nav-avoider {

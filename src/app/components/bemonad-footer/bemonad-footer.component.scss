@@ -1,0 +1,17 @@
+@import "vars";
+@import "mixins";
+
+#footerContainer {
+  background-color: $bemonad-green;
+  
+  .footer-content {
+    display: flex;
+
+    .left-column, .right-column {
+      width: 50%;
+    }
+  }
+  .baseline {
+    @include font-size(11);
+  }
+}
