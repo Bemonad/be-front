@@ -1,0 +1,14 @@
+@import "vars";
+
+.citation {
+
+  .quote-icon-top, .quote-icon-bot {
+    height: 30px;
+    width: auto;
+    display: inline-block;
+  }
+
+  .quote-icon-bot {
+    transform: rotate(180deg);
+  }
+}
