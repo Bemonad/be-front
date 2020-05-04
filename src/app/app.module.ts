@@ -20,6 +20,7 @@ import { BemonadCapacitiesComponent } from './components/bemonad-capacities/bemo
 
 import { UserService } from './services/user.service';
 import { BemonadCitationComponent } from './components/bemonad-citation/bemonad-citation.component';
+import { BemonadBookBannerComponent } from './components/bemonad-book-banner/bemonad-book-banner.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -36,7 +37,8 @@ export function tokenGetter() {
     MyBookingsComponent,
     BemonadFooterComponent,
     BemonadCapacitiesComponent,
-    BemonadCitationComponent
+    BemonadCitationComponent,
+    BemonadBookBannerComponent
   ],
   imports: [
     BrowserModule,

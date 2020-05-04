@@ -1,0 +1,42 @@
+@import "mixins";
+@import "vars";
+
+.book-banner {
+  position: relative;
+  height: 190px;
+  overflow: hidden;
+
+  .illustration {
+    position: absolute;
+  }
+
+  .right-background {
+    background-color: $bemonad-green;
+    position: absolute;
+    width: 75%;
+    height: 232%;
+    top: -60px;
+    right: 0;
+    transform: rotate(16deg);
+    box-sizing: content-box;
+  }
+
+  .right-area {
+    position: absolute;
+    width: 55%;
+    right: 0;
+
+    .book-title {
+      @include font-size(26)
+    }
+
+    .button {
+      @include default-button();
+      @include skewmorphic-shadow(#47FACC, #05A47A);
+      background-color: $bemonad-green;
+      display: inline-block;
+      padding: 8px 16px !important;
+    }
+  }
+
+}
