@@ -1,0 +1,29 @@
+.capacities {
+  display: flex;
+
+  .sit-capacity,
+  .stand-capacity {
+    display: flex;
+    align-items: center;
+    width: 50%;
+
+    .card-icon {
+      height: 30px;
+      object-fit: contain;
+      width: unset;
+    }
+
+    .capacity-text {
+      flex: 1;
+    }
+  }
+}
+
+.capacities.centered {
+  justify-content: space-around;
+
+  .sit-capacity,
+  .stand-capacity {
+    width: unset;
+  }
+}

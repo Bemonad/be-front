@@ -24,16 +24,36 @@
   box-shadow: -9px -9px 16px $left-color, 9px 9px 16px $right-color;
 }
 
+@mixin default-button {
+  & {
+    border-radius: $default-border-radius * 2;
+    padding: $spacing-basis * 2 $spacing-basis * 4;
+    margin-bottom: $spacing-basis; // NOTE: To let a bit space for the shadow
+  }
+}
+
 @mixin link-style($color) {
-  a, a:visited, a:focus, a:active {
+  &, &:visited, &:focus, &:active {
     transition: color .3s;
     color: $color!important;
     text-decoration: none;
   }
   
-  a:hover {
+  &:hover {
     color: darken($color, 10%);
     text-decoration: underline;
+  }
+}
+
+@mixin no-link-style() {
+  &, &:visited, &:focus, &:active {
+    transition: unset;
+    color: inherit!important;
+    text-decoration: none;
+  }
+  
+  &:hover {
+    text-decoration: none;
   }
 }
 

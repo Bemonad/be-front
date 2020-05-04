@@ -32,27 +32,6 @@
         margin-left: 1.66%;
         margin-right:1.66%;
       }
-
-      .capacities {
-        display: flex;
-
-        .sit-capacity,
-        .stand-capacity {
-          display: flex;
-          align-items: center;
-          width: 50%;
-
-          .card-icon {
-            height: 30px;
-            object-fit: contain;
-            width: unset;
-          }
-
-          .capacity-text {
-            flex: 1;
-          }
-        }
-      }
       
       .card-description {
         display: -webkit-box;
@@ -65,9 +44,8 @@
         display: flex;
         justify-content: space-between;
 
-        @include link-style($default-text-color);
         .booking-link {
-
+          @include link-style($default-text-color);
         }
       }
     }

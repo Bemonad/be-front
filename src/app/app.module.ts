@@ -16,6 +16,7 @@ import { RoomComponent } from './components/room/room.component';
 import { BookingComponent } from './components/booking/booking.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
 import { BemonadFooterComponent } from './components/bemonad-footer/bemonad-footer.component';
+import { BemonadCapacitiesComponent } from './components/bemonad-capacities/bemonad-capacities.component';
 
 import { UserService } from './services/user.service';
 
@@ -32,7 +33,8 @@ export function tokenGetter() {
     RoomComponent,
     BookingComponent,
     MyBookingsComponent,
-    BemonadFooterComponent
+    BemonadFooterComponent,
+    BemonadCapacitiesComponent
   ],
   imports: [
     BrowserModule,
