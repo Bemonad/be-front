@@ -56,7 +56,17 @@ export class UserService {
     this.user = user;
     this.currentUser.next(user);
     localStorage.setItem('access_token', this.user.token);
-    this.router.navigate(['/']);
+
+    switch (this.user.role) {
+      case 'admin':
+        this.router.navigate(['/admin/users']);
+        break;
+      case 'user':
+      default:
+        this.router.navigate(['/']);
+        break;
+    }
+
   }
 
   isAuthenticated() {
