@@ -19,6 +19,7 @@ import { BemonadFooterComponent } from './components/bemonad-footer/bemonad-foot
 import { BemonadCapacitiesComponent } from './components/bemonad-capacities/bemonad-capacities.component';
 
 import { UserService } from './services/user.service';
+import { BemonadCitationComponent } from './components/bemonad-citation/bemonad-citation.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -34,7 +35,8 @@ export function tokenGetter() {
     BookingComponent,
     MyBookingsComponent,
     BemonadFooterComponent,
-    BemonadCapacitiesComponent
+    BemonadCapacitiesComponent,
+    BemonadCitationComponent
   ],
   imports: [
     BrowserModule,
