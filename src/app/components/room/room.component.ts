@@ -24,12 +24,15 @@ export class RoomComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.roomId = this.route.snapshot.queryParamMap.get('id');
-    this.roomService.getRoom(this.roomId).subscribe( data => {
-      this.room = data;
+    this.route.queryParams.subscribe((queryParams) => {
+
+      this.roomId = queryParams.id;
+      this.roomService.getRoom(this.roomId).subscribe((data) => {
+        this.room = data;
+      });
     });
 
-    this.userService.getCurrentUser().subscribe(currentUser => {      
+    this.userService.getCurrentUser().subscribe(currentUser => {
       this.currentUser = currentUser;
     });
   }

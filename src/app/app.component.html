@@ -1,17 +1,4 @@
-<nav id="mobileNavContainer" class="hide-md hide-lg">
-  <div class="burger-container" (click)="toggleMobileMenu()">
-    <div class="burger-content" [ngClass]="{'cross': mobileNav.isOpen === true}"></div>
-  </div>  
-
-  <div class="mobile-nav-content" [ngClass]="{'opened': mobileNav.isOpen === true}">
-    Mobile menu content
-  </div>
-</nav>
-
-<nav id="desktopTabletNavContainer" class="hide-xs px-2">
-  <div class="bold">Bemonad</div>
-  <div>desktop menu content</div>
-</nav>
+<benomad-nav></benomad-nav>
 
 <router-outlet></router-outlet>
 

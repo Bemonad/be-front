@@ -1,0 +1,33 @@
+<nav id="mobileNavContainer" class="hide-md hide-lg">
+  <div class="burger-container" (click)="toggleMobileMenu()">
+    <div class="burger-content" [ngClass]="{'cross': mobileNav.isOpen === true}"></div>
+  </div>
+
+  <div class="mobile-nav-content pl-2" [ngClass]="{'opened': mobileNav.isOpen === true}">
+    <h2 class="mb-2" (click)="toggleMobileMenu()" [routerLink]="['/']">BEMONAD</h2>
+    <h2 class="mb-2">Les salles</h2>
+      <ul class="pl-2">
+        <li class="pb-1" *ngFor="let room of rooms">
+          <a [routerLink]="['/rooms']" [queryParams]="{ id: room._id }" (click)="toggleMobileMenu()">{{room.name}}</a>
+        </li>
+      </ul>
+    <h2 class="mb-2">Réserver</h2>
+    <div class="pl-2">
+      <ul>
+        <li class="pb-1">
+          <a (click)="toggleMobileMenu()" *ngIf="!currentUser">Demander un accès</a>
+          <a (click)="toggleMobileMenu()" *ngIf="currentUser" [routerLink]="['/booking']">Réserver une salle</a>
+        </li>
+        <li class="pb-1">
+          <a (click)="toggleMobileMenu()" [routerLink]="['/login']" *ngIf="!currentUser">Se connecter</a>
+          <a (click)="toggleMobileMenu()" *ngIf="currentUser" [routerLink]="['/logout']">Se déconnecter</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<nav id="desktopTabletNavContainer" class="hide-xs px-2">
+  <div class="bold">Bemonad</div>
+  <div>desktop menu content</div>
+</nav>

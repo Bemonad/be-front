@@ -54,6 +54,7 @@ export class UserService {
 
   finalCheckIn(user) {
     this.user = user;
+    this.currentUser.next(user);
     localStorage.setItem('access_token', this.user.token);
     this.router.navigate(['/']);
   }
