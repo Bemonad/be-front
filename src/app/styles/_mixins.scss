@@ -26,6 +26,12 @@
 
 @mixin default-button {
   & {
+    appearance: none;
+    background: $near-white;
+    border: none;
+    @include font-size(11);
+    display: inline-block;
+    outline: none;
     border-radius: $default-border-radius * 2;
     padding: $spacing-basis * 2 $spacing-basis * 4;
     margin-bottom: $spacing-basis; // NOTE: To let a bit space for the shadow
@@ -33,9 +39,12 @@
 }
 
 @mixin link-style($color) {
-  &, &:visited, &:focus, &:active {
-    transition: color .3s;
-    color: $color!important;
+  &,
+  &:visited,
+  &:focus,
+  &:active {
+    transition: color 0.3s;
+    color: $color !important;
     text-decoration: none;
   }
 
@@ -46,9 +55,12 @@
 }
 
 @mixin no-link-style() {
-  &, &:visited, &:focus, &:active {
+  &,
+  &:visited,
+  &:focus,
+  &:active {
     transition: unset;
-    color: inherit!important;
+    color: inherit !important;
     text-decoration: none;
   }
 
