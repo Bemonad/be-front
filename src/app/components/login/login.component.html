@@ -1,10 +1,24 @@
 <div id="loginContainer">
-  <div class="desktop-nav-avoider">
-    <p>login works!</p>
-  
-    <input type="email" [(ngModel)]="login.email" />
-    <input type="password" [(ngModel)]="login.password" />
-  
-    <button (click)="logIn()">Send</button>
+  <div class="container desktop-nav-avoider login-content">
+    <h1 class="page-title text-center">Bemonad</h1>
+
+    <div class="input-container">
+      <label for="email">Identifiant</label>
+      <input id="email" class="border-input" [ngClass]="{'red-border': errors.email}" type="email" placeholder="Email" [(ngModel)]="login.email" />
+      <div class="input-error mt-1" *ngIf="errors.email">Veuillez remplir ce champ</div>
+    </div>
+    <div class="input-container">
+      <label for="password">Mot de passe</label>
+      <input id="password" class="border-input" [ngClass]="{'red-border': errors.password }" type="password" placeholder="Mot de passe" [(ngModel)]="login.password" />
+      <div class="input-error mt-1" *ngIf="errors.badCredentials">Identifiant ou mot de passe incorrect</div>
+      <div class="input-error mt-1" *ngIf="errors.password">Veuillez remplir ce champ</div>
+    </div>
+
+    <div class="button-container text-center py-4">
+      <button class="login-button bold" (click)="logIn()">
+        <span *ngIf="!loading">Log in</span>
+        <span *ngIf="loading">Loging in</span>
+      </button>
+    </div>
   </div>
 </div>

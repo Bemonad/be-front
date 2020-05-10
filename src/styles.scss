@@ -33,7 +33,7 @@ html {
 body {
   max-width: $site-container-width;
   margin: 0 auto;
-  @include font-size(14, 14, 14);
+  @include font-size(16, 16, 14);
   @media (min-width: #{$site-container-width}) {
     border-left: 1px solid $light-grey;
     border-right: 1px solid $light-grey;
@@ -105,7 +105,7 @@ a {
 // Structure
 .container {
   width: 100%;
-  padding: 0 $spacing-basis * 2;
+  padding: 0 $spacing-basis * 3;
 }
 
 .desktop-nav-avoider {
@@ -133,4 +133,47 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-basis * 2;
+
+  label {
+    margin-bottom: $spacing-basis;
+  }
+
+  .input-caption,
+  .input-error {
+    font-style: italic;
+    @include font-size(10);
+  }
+
+  .input-caption {
+    color: $dark-grey;
+  }
+
+  .input-error {
+    color: $bemonad-red;
+  }
+}
+
+.border-input[type="email"],
+.border-input[type="password"] {
+  appearance: none;
+  background: none;
+  border: none;
+  border-bottom: 3px solid $bemonad-green;
+  padding: $spacing-basis;
+
+  &::placeholder {
+    font-style: italic;
+    @include font-size(13);
+    color: $dark-grey;
+  }
+
+  &.red-border {
+    border-color: $bemonad-red;
+  }
 }
