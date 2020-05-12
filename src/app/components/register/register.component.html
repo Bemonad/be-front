@@ -1,9 +1,47 @@
-<p>Hello {{ user.firstName }} {{ user.lastName }}</p>
+<!-- <p>Hello {{ user.firstName }} {{ user.lastName }}</p>
 
-<input type="email" [(ngModel)]="user.email" disabled />
-<input type="text" [(ngModel)]="user.firstName" disabled/>
-<input type="text" [(ngModel)]="user.lastName" disabled/>
+<input type="email" [ngModel]="user.email" disabled />
+<input type="text" [ngModel]="user.firstName" disabled />
+<input type="text" [ngModel]="user.lastName" disabled />
 <input type="password" [(ngModel)]="password.reference" />
 <input type="password" [(ngModel)]="password.confirmation" />
 
-<button (click)="register()">Send</button>
+<button (click)="register()">Send</button> -->
+
+<div id="registerContainer">
+  <div class="container desktop-nav-avoider register-content" *ngIf="user">
+    <h1 class="page-title text-center">Bemonad</h1>
+
+    <div class="input-container">
+      <label for="email">Identifiant</label>
+      <input id="email" class="border-input" type="email" placeholder="Email" [ngModel]="user.email" disabled />
+      <div class="input-caption mt-1" (click)="toggleIdExplanation()">Pourquoi je ne peux pas changer mon identifiant ?</div>
+      <div class="input-caption mt-1" *ngIf="showIdExplanation">Le mail associé à votre compte est défini par un administrateur. Il s'agit de celui utilisé lors de votre demande d'accès.</div>
+    </div>
+    <div class="input-container">
+      <label for="password">Mot de passe</label>
+      <input id="password" class="border-input" [ngClass]="{'red-border': errors.password.reference }" type="password" placeholder="Mot de passe" [(ngModel)]="password.reference" />
+      <div class="input-error mt-1" *ngIf="errors.password.reference">
+        Votre mot de passe doit contenir:
+        <ul>
+          <li class="ml-1">- Une majuscule</li>
+          <li class="ml-1">- Au moins 1 chiffre</li>
+          <li class="ml-1">- Au moins 1 lettre</li>
+          <li class="ml-1">- Au moins 8 caractères</li>
+        </ul>
+      </div>
+    </div>
+    <div class="input-container">
+      <label for="password">Confirmer le mot de passe</label>
+      <input id="password" class="border-input" [ngClass]="{'red-border': errors.password.confirmation }" type="password" placeholder="Confirmer le mot de passe" [(ngModel)]="password.confirmation" />
+      <div class="input-error mt-1" *ngIf="errors.password.confirmation">Les mots de passe ne correspondent pas</div>
+    </div>
+
+    <div class="button-container text-center py-4">
+      <button class="register-button bold" (click)="register()">
+        <span *ngIf="!loading">Register</span>
+        <span *ngIf="loading">registering</span>
+      </button>
+    </div>
+  </div>
+</div>

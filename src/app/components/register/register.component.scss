@@ -1,0 +1,14 @@
+@import "mixins";
+
+#registerContainer {
+  min-height: 100%;
+
+  .register-content {
+    min-height: 100%;
+
+    .register-button {
+      @include skewmorphic-shadow();
+      @include default-button();
+    }
+  }
+}
