@@ -173,6 +173,11 @@ a {
     color: $dark-grey;
   }
 
+  &:disabled {
+    border-color: $grey;
+    color: $dark-grey;
+  }
+  
   &.red-border {
     border-color: $bemonad-red;
   }
