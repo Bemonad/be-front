@@ -35,6 +35,8 @@ export class RegisterComponent implements OnInit {
 
   showIdExplanation: Boolean;
 
+  tokenExpired: Boolean;
+
   constructor(
     private route: ActivatedRoute,
     private userService: UserService,
@@ -48,10 +50,15 @@ export class RegisterComponent implements OnInit {
     };
     this.resetErrors();
     this.showIdExplanation = false;
+    this.tokenExpired = false;
 
     this.id = this.route.snapshot.params.id;
     this.userService.getUser(this.id).subscribe((data) => {
       this.user = data;
+    }, (error) => {
+      if (error.status === 401) {
+        this.tokenExpired = true
+      }
     });
   }
 
@@ -101,8 +108,8 @@ export class RegisterComponent implements OnInit {
     .subscribe(() => {
         this.loading = false;
         this.router.navigate(["/login"]);
-      }, () => {
-
+      }, (error) => {
+        console.error(error)
       });
   }
 
