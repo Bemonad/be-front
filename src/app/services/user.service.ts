@@ -89,4 +89,8 @@ export class UserService {
     return this.http.post(`${this.apiUrl}/users`, body, this.httpOptionsJson);
   }
 
+  updateUser(body) {
+    return this.http.put(`${this.apiUrl}/users`, body, this.httpOptionsJson);
+  }
+
 }
