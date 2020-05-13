@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BookingService } from '../../services/booking.service';
 import { UserService } from '../../services/user.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-my-bookings',
@@ -8,7 +9,7 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./my-bookings.component.scss']
 })
 export class MyBookingsComponent implements OnInit {
-  public myBooks: object;
+  public bookings: object;
 
   constructor(private bookingService: BookingService, private userService: UserService) { }
 
@@ -16,7 +17,8 @@ export class MyBookingsComponent implements OnInit {
     this.userService.getCurrentUser().subscribe( user => {
       if (user) {
         this.bookingService.getMyBookings(user).subscribe( books => {
-          this.myBooks = books;
+          console.log(books);
+          this.bookings = books;
         });
       }
     });
