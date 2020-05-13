@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { RoomComponent } from './components/room/room.component';
 import { BookingComponent } from './components/booking/booking.component';
+import { UsersComponent } from './components/admin/users/users.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
 import { AuthGardService} from './services/auth-gard.service';
 
@@ -32,9 +33,18 @@ const routes: Routes = [
     canActivate: [AuthGardService]
   },
   {
+    path: 'admin',
+    canActivate: [AuthGardService],
+    children: [
+      {
+        path: 'users',
+        component: UsersComponent
+      }
+    ]
+  },
+  {
     path: '',
     component: HomeComponent,
-    // canActivate: [AuthGardService] : Example
   },
 ];
 

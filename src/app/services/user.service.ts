@@ -5,7 +5,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-interface UserData {
+export interface UserData {
   _id: string;
   firstName: string;
   lastName: string;
@@ -56,7 +56,17 @@ export class UserService {
     this.user = user;
     this.currentUser.next(user);
     localStorage.setItem('access_token', this.user.token);
-    this.router.navigate(['/']);
+
+    switch (this.user.role) {
+      case 'admin':
+        this.router.navigate(['/admin/users']);
+        break;
+      case 'user':
+      default:
+        this.router.navigate(['/']);
+        break;
+    }
+
   }
 
   isAuthenticated() {
@@ -69,6 +79,18 @@ export class UserService {
 
   getCurrentUser(): Observable<any> {
     return this.currentUser.asObservable();
+  }
+
+  getAllUsers() {
+    return this.http.get<Array<UserData>>(`${this.apiUrl}/users`);
+  }
+
+  createUser(body) {
+    return this.http.post(`${this.apiUrl}/users`, body, this.httpOptionsJson);
+  }
+
+  updateUser(body) {
+    return this.http.put(`${this.apiUrl}/users`, body, this.httpOptionsJson);
   }
 
 }
