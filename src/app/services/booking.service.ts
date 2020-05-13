@@ -12,6 +12,7 @@ export interface BookingData {
   video?: boolean;
   number_people?: number;
   status?: boolean;
+  weekNumber: number;
 }
 @Injectable({
   providedIn: 'root'

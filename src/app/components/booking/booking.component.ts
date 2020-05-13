@@ -129,6 +129,7 @@ export class BookingComponent implements OnInit {
           video: false,
           number_people: null,
           status: true,
+          weekNumber: moment().week()
         };
       }
     });
