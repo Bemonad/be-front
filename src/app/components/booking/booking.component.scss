@@ -12,6 +12,21 @@
     }
   }
 
+  .second-title {
+    padding-top: 30px;
+  }
+
+  label {
+    display: block;
+  }
+
+  #date {
+    background-color: unset;
+    border: unset;
+    font-size: 20px;
+    text-align: center;
+  }
+
   h2:after {
     content:"";
     position: absolute;
@@ -32,10 +47,19 @@
     margin: auto;
   }
 
-  .room-select {
+  .room-select, #duration, #startHour, #startMin, #peopleNb {
     @include skewmorphic-shadow();
+    border-radius: 12px;
+    font-size: 16px;
     border: none;
     background-color: $lightest-grey;
+  }
+
+  #startHour, #startMin, #peopleNb {
+    width: 55px;
+  }
+
+  .room-select {
     width: 60%;
   }
 
@@ -65,4 +89,33 @@
     width: 50%;
   }
 
+  .video-text {
+    display: inline-block;
+  }
+
+  button {
+    @include skewmorphic-shadow();
+    @include default-button;
+    font-size: 16px;
+    border-radius: $default-border-radius;
+    display: block;
+    margin: auto;
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .fa-check-square {
+    color: $bemonad-green;
+  }
+
+  .fa-square {
+    color: $light-grey;
+  }
+
+  .fa-check-square, .fa-square {
+    @include skewmorphic-shadow();
+  }
 }

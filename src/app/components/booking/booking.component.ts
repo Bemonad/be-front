@@ -164,4 +164,8 @@ export class BookingComponent implements OnInit {
   setSit() {
     this.currentBooking.sit = !this.currentBooking.sit;
   }
+
+  setVideo() {
+    this.currentBooking.video = !this.currentBooking.video;
+  }
 }
