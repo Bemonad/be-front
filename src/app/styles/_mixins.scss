@@ -97,6 +97,34 @@
   }
 }
 
+/* Based on font-size(). It will adapt line-height according to the screen type dynamically. It can also be set manually.  */
+/* usage: @include line-height(mobilePx, tabletPx?, desktopPx?)  */
+@mixin line-height(
+  $pxValueXs,
+  $pxValueMd: $pxValueXs * 1.1,
+  $pxValueLg: $pxValueXs * 1.2
+) {
+  @if ($pxValueXs < $minimumFontSize) {
+    $pxValueXs: $pxValueLg;
+  }
+  $remValueXs: $pxValueXs / 10;
+  line-height: #{$remValueXs}rem;
+
+  @include tablet() {
+    @if ($pxValueMd < $minimumFontSize) {
+      $pxValueMd: $pxValueLg;
+    }
+
+    $remValueMd: $pxValueMd / 10;
+    line-height: #{$remValueMd}rem;
+  }
+
+  @include desktop() {
+    $remValueLg: $pxValueLg / 10;
+    line-height: #{$remValueLg}rem;
+  }
+}
+
 /* Generate spacing classes */
 @mixin spacing {
   @for $i from 1 through 20 {

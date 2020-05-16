@@ -122,7 +122,7 @@ export class BookingComponent implements OnInit {
       if (user) {
         this.currentBooking = {
           user_id: user._id,
-          id_room: '',
+          room: '',
           start: null,
           end: null,
           sit: true,

@@ -20,7 +20,7 @@ export interface UserData {
 export class UserService {
   private user: UserData;
   apiUrl: string;
-  httpOptionsJson: object;
+  httpOptionsJson: Object;
   currentUser: BehaviorSubject<any>;
 
   constructor(private http: HttpClient, public jwtHelper: JwtHelperService, private router: Router) {

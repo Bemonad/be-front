@@ -5,7 +5,7 @@ import { UserService } from './user.service';
 
 export interface BookingData {
   user_id: any;
-  id_room?: string;
+  room?: string;
   start?: number;
   end?: number;
   sit?: boolean;
@@ -19,7 +19,7 @@ export interface BookingData {
 })
 export class BookingService {
 
-  constructor(private http: HttpClient, private userService: UserService) {
+  constructor(private http: HttpClient) {
   }
 
   registerBook(bookData) {
