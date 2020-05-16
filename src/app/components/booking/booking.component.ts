@@ -157,8 +157,15 @@ export class BookingComponent implements OnInit {
   book() {
     this.currentBooking.start = this.parseHour(this.selectedDate, this.startHour, this.half);
     this.currentBooking.end = this.parseHour(this.currentBooking.start, this.duration);
-    // console.log(this.currentBooking);
 
     this.bookingService.registerBook(this.currentBooking);
+  }
+
+  setSit() {
+    this.currentBooking.sit = !this.currentBooking.sit;
+  }
+
+  setVideo() {
+    this.currentBooking.video = !this.currentBooking.video;
   }
 }

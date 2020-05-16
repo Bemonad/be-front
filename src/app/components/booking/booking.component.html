@@ -1,86 +1,89 @@
-<div>
-  <label for="salle">Salle</label>
-  <select *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.room">
-    <option disabled selected>Select a room</option>
-    <option
-      *ngFor="let room of rooms"
-      [value]="room._id"
-      [attr.selected]="room.selected">{{room.name}}</option>
-  </select>
-</div>
+<section id="booking-page" class="container">
+  <h2 class="mb-2"><span>Salle</span></h2>
+  <div>
+    <input class="center" type="date" id="date"
+           [ngModel]="selectedDate | date:'yyyy-MM-dd'"
+           (ngModelChange)="selectedDate = $event"
+           [value]="selectedDate"
+    >
+  </div>
 
-<div>
-  <input type="date" id="date"
-         [ngModel]="selectedDate | date:'yyyy-MM-dd'"
-         (ngModelChange)="selectedDate = $event"
-         [value]="selectedDate"
-         >
-</div>
+  <div>
+    <select class="room-select center py-1 pl-2" *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.id_room">
+      <option disabled selected>Select a room</option>
+      <option
+        *ngFor="let room of rooms"
+        [value]="room._id"
+        [attr.selected]="room.selected">{{room.name}}</option>
+    </select>
+  </div>
 
-<div>
-  <input
-    type="radio"
-    id="sit"
-    name="place"
-    [value]="true"
-    [(ngModel)]="currentBooking.sit"
-    checked
-  >
-  <label for="sit">Assis</label>
-</div>
+  <div>
+    <p>Les invités seront :</p>
+    <div class="sit mt-1">
+      <div>
+        <span class="sit-left" (click)="setSit()" [ngClass]="{'active-sit' : currentBooking.sit}">Assis</span>
+        <span class="sit-right" (click)="setSit()" [ngClass]="{'active-sit' : !currentBooking.sit}">Debout</span>
+      </div>
+    </div>
+  </div>
 
-<div>
-  <input
-    type="radio"
-    id="stand"
-    name="place"
-    [value]="false"
-    [(ngModel)]="currentBooking.sit"
-  >
-  <label for="stand">Debout</label>
-</div>
-<div>
-  <input
-    type="text"
-    id="peopleNb"
-    [(ngModel)]="currentBooking.number_people"
-  >
-  <label for="peopleNb">Nombre de personnes</label>
-</div>
+  <p class="mb-2">Capacité de la salle: </p>
 
-<div>
-  <select name="" id="" [(ngModel)]="duration">
-    <option disabled selected>Durée</option>
-    <option value="1">1h</option>
-    <option value="2">2h</option>
-    <option value="3">3h</option>
-  </select>
-</div>
+  <div>
+    <label class="mb-2" for="peopleNb">Combien de personnes attendez-vous ?</label>
+    <input
+      class="py-1 pl-2"
+      type="text"
+      id="peopleNb"
+      [(ngModel)]="currentBooking.number_people"
+    >
+  </div>
 
-<div>
-  <select name="" id="" [(ngModel)]="startHour" (change)="filterHalf($event.target.value)">
-    <option disabled selected>Heure</option>
-    <option
-      *ngFor="let hour of arrayHours"
-      [value]="hour.time"
-      [attr.selected]="hour.selected">{{hour.time}}
-    </option>
-  </select>
+  <div>
+    <label class="mb-2">Combien de temps comptez vous-rester ?</label>
+    <select class="py-1 pl-2" name="" id="duration" [(ngModel)]="duration">
+      <option disabled selected>Durée</option>
+      <option value="1">1h</option>
+      <option value="2">2h</option>
+      <option value="3">3h</option>
+    </select>
+  </div>
 
-  <select name="" id="" [(ngModel)]="half">
-    <option
-      *ngFor="let getHalf of listHalf"
-      [value]="getHalf.value"
-      [attr.selected]="getHalf.selected">{{getHalf.label}}
-    </option>
-<!--    <option [value]="false">0</option>-->
-<!--    <option [value]="true" >30</option>-->
-  </select>
-</div>
+  <div>
+    <label class="mb-2">À partir de quelle heure ?</label>
+    <select
+      class="py-1 pl-2 mr-1"
+      name="" id="startHour"
+      [(ngModel)]="startHour"
+      (change)="filterHalf($event.target.value)"
+    >
+      <option
+        *ngFor="let hour of arrayHours"
+        [value]="hour.time"
+        [attr.selected]="hour.selected">{{hour.time}}
+      </option>
+    </select>
+    <span> : </span>
+    <select class="py-1 pl-2 ml-1" name="" id="startMin" [(ngModel)]="half">
+      <option
+        *ngFor="let getHalf of listHalf"
+        [value]="getHalf.value"
+        [attr.selected]="getHalf.selected">{{getHalf.label}}
+      </option>
+    </select>
+  </div>
 
-<div>
-  <label for="video">Avez-vous besoin d'un vidéo projecteur ?</label>
-  <input id="video" type="checkbox" [(ngModel)]="currentBooking.video">
-</div>
+  <h2 class="mb-2 second-title"><span>Équipement</span></h2>
+  <div (click)="setVideo()">
+    <span class="checkbox-video mr-2">
+      <i *ngIf="!currentBooking.video" class="far fa-square"></i>
+      <i *ngIf="currentBooking.video" class="fas fa-check-square"></i>
+    </span>
+    <label class="video-text">Vidéo-projecteur</label>
+  </div>
 
-<button (click)="book()">Send</button>
+  <div class="button-wrapper">
+    <button class="my-3 py-2 px-5" (click)="book()">Valider</button>
+  </div>
+</section>

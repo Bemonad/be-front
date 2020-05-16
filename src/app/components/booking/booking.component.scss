@@ -1,0 +1,121 @@
+@import "mixins";
+@import "vars";
+
+#booking-page {
+  h2 {
+    position: relative;
+    margin-left: 10px;
+    padding-top: 80px;
+    span {
+      padding-right: 20px;
+      background-color: $lightest-grey;
+    }
+  }
+
+  .second-title {
+    padding-top: 30px;
+  }
+
+  label {
+    display: block;
+  }
+
+  #date {
+    background-color: unset;
+    border: unset;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  h2:after {
+    content:"";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 40px;
+    height: 0.5em;
+    border-top: 1px solid black;
+    z-index: -1;
+  }
+
+  div {
+    margin-bottom: 16px;
+  }
+
+  .center {
+    display: block;
+    margin: auto;
+  }
+
+  .room-select, #duration, #startHour, #startMin, #peopleNb {
+    @include skewmorphic-shadow();
+    border-radius: 12px;
+    font-size: 16px;
+    border: none;
+    background-color: $lightest-grey;
+  }
+
+  #startHour, #startMin, #peopleNb {
+    width: 55px;
+  }
+
+  .room-select {
+    width: 60%;
+  }
+
+  .active-sit {
+    background-color: $bemonad-green;
+  }
+
+  .sit {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+
+    > div {
+      @include skewmorphic-shadow();
+      width: 60%;
+      border-radius: $default-border-radius;
+      overflow: hidden;
+    }
+  }
+
+  .sit-left, .sit-right {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 24px;
+    overflow: hidden;
+    width: 50%;
+  }
+
+  .video-text {
+    display: inline-block;
+  }
+
+  button {
+    @include skewmorphic-shadow();
+    @include default-button;
+    font-size: 16px;
+    border-radius: $default-border-radius;
+    display: block;
+    margin: auto;
+  }
+
+  .button-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .fa-check-square {
+    color: $bemonad-green;
+  }
+
+  .fa-square {
+    color: $light-grey;
+  }
+
+  .fa-check-square, .fa-square {
+    @include skewmorphic-shadow();
+  }
+}
