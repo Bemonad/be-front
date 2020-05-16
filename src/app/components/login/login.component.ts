@@ -10,6 +10,9 @@ export class LoginComponent implements OnInit {
   login: {
     email: string;
     password: string;
+  } = {
+    email: '',
+    password: '',
   };
 
   loading: Boolean;
@@ -19,22 +22,16 @@ export class LoginComponent implements OnInit {
     email: Boolean,
     password: Boolean,
     other: Boolean,
+  } = {
+    badCredentials: false,
+    email: false,
+    password: false,
+    other: false,
   };
 
   constructor(private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.login = {
-      email: '',
-      password: '',
-    };
-    this.errors = {
-      badCredentials: false,
-      email: false,
-      password: false,
-      other: false,
-    };
-  }
+  ngOnInit(): void {}
 
   resetErrors() {
     this.errors = {

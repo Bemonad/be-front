@@ -1,6 +1,6 @@
 <div>
   <label for="salle">Salle</label>
-  <select *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.id_room">
+  <select *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.room">
     <option disabled selected>Select a room</option>
     <option
       *ngFor="let room of rooms"

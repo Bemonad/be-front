@@ -23,6 +23,7 @@ import { NavComponent } from './components/nav/nav.component';
 
 import { UserService } from './services/user.service';
 import { UsersComponent } from './components/admin/users/users.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -54,6 +55,7 @@ export function tokenGetter() {
     }),
     AppRoutingModule,
     FormsModule,
+    NgbModule,
   ],
   providers: [
     {

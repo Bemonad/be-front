@@ -2,8 +2,44 @@
   <div class="container desktop-nav-avoider my-bookings-content">
     <h1 class="page-title text-center">Mes réservations</h1>
 
-    <div class="filter-container">
-
+    <div class="filters-container mb-2 text-right">
+      <div class="filters-dropdown" ngbDropdown>
+        <button class="filters-trigger" ngbDropdownToggle>
+          <span class="dot" *ngIf="selectedFilter.id !== 'ALL'" [ngClass]="'bg-' + selectedFilter.class"></span>
+          {{ selectedFilter.label }}
+        </button>
+        <div class="pt-1" ngbDropdownMenu>
+          <button class="pb-1" *ngFor="let filterKey of objectKeys(filtersMap)" (click)="changeFilter(filtersMap[filterKey])" ngbDropdownItem>
+            <span class="dot" [ngClass]="'bg-' + filtersMap[filterKey].class"></span>
+            {{ filtersMap[filterKey].label }}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="my-bookings-list">
+      <!-- felix@TODO: ng-class beneath is quite dirty, that should be cleaned -->
+      <div class="booking-item mb-2" *ngFor="let booking of filteredBookings" [ngClass]="{
+        'bg-passed': moment(booking.end).isBefore() === true && booking.status === true,
+        'bg-to-come': moment(booking.end).isBefore() === false && booking.status === true,
+        'bg-canceled': booking.status === false
+      }">
+        <div class="date-container">
+          <span class="day semi-bold">{{moment(booking.start).format('DD')}}</span>
+          <span class="month">{{moment(booking.start).format('MMM')}}</span>
+        </div>
+        <div class="content p-1">
+          <div class="semi-bold mb-1 header">
+            {{ booking.room.name }}
+            <span class="ml-1" *ngIf="booking.status === false">Annulé</span>
+          </div>
+          <div class="mb-1">
+            {{  moment(booking.start).format('DD/MM/YYYY') }} | {{  moment(booking.start).format('HH[h]mm') }} - {{ moment(booking.end).format('HH[h]mm') }}
+          </div>
+          <div>
+            {{ booking.number_people }} personne<span *ngIf="booking.number_people > 1">s</span>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

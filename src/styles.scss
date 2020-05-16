@@ -183,3 +183,6 @@ a {
     border-color: $bemonad-red;
   }
 }
+
+/* Importing Bootstrap SCSS file. */
+// @import '~bootstrap/scss/bootstrap'; // NOTE: Reminder => Boostrap style is NOT imported intentionally, do not uncomment this line (neither delete it)

@@ -1,0 +1,85 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/_mixins";
+@import "~bootstrap/scss/_dropdown";
+
+// Above are imports for dropdowns
+
+@import "vars";
+@import "mixins";
+
+#myBookingsContainer {
+  .bg-all {
+    background-color: transparent!important;
+  }
+  .bg-passed {
+    background-color: $grey!important;
+  }
+  .bg-to-come {
+    background-color: $bemonad-green!important;
+  }
+  .bg-canceled {
+    background-color: $bemonad-red!important;
+  }
+
+  .my-bookings-content {
+    .filters-container {
+      .filters-trigger {
+        @include skewmorphic-shadow(#fff);
+        @include default-button();
+        padding: $spacing-basis $spacing-basis * 2 !important;
+        border-radius: $default-border-radius !important;
+      }
+
+      .filters-dropdown {
+        .dot {
+          display: inline-block;
+          height: 10px;
+          width: 10px;
+          border-radius: 5px;
+          margin-right: $spacing-basis / 2;
+        }
+      }
+    }
+  }
+
+  .my-bookings-list {
+    .booking-item {
+      @include skewmorphic-shadow(#fff);
+      background-color: $near-white;
+      border-radius: $default-border-radius;
+      overflow: hidden;
+      display: flex;
+    }
+
+    .date-container {
+      background-color: #fff;
+      width: 80px;
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      .day {
+        @include font-size(40);
+        @include line-height(40);
+      }
+    }
+
+    .content {
+      display: inline-block;
+      width: calc(100% - 80px - 10px);
+      vertical-align: top;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-around;
+      background-color: $near-white;
+
+      .header {
+        display: inline-flex;
+        justify-content: space-between;
+        align-items: top;
+      }
+    }
+  }
+}
