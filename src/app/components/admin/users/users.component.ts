@@ -22,7 +22,7 @@ export class UsersComponent implements OnInit {
     firstName: "",
     lastName: "",
     email: "",
-    role: "",
+    role: "user",
   };
 
   public userToEdit: UserData = {
@@ -73,6 +73,8 @@ export class UsersComponent implements OnInit {
         this.allUsers = users;
         this.resetFilter();
       });
+    }, (error) => {
+      console.error("An error occured", error);
     });
     this.action = "show";
   }

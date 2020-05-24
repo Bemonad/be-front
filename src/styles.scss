@@ -122,7 +122,7 @@ a {
 // style
 .page-title {
   padding: ($spacing-basis * 10) 0 ($spacing-basis * 5);
-  
+
   @include tablet {
     padding: ($spacing-basis * 25) 0 ($spacing-basis * 15);
   }
@@ -165,6 +165,7 @@ a {
 }
 
 .border-input[type="email"],
+.border-input[type="text"],
 .border-input[type="password"] {
   appearance: none;
   background: none;
@@ -188,7 +189,18 @@ a {
   }
 }
 
-.default-input {
+.basic-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-basis * 2;
+
+  label {
+    margin-bottom: $spacing-basis;
+  }
+}
+
+.basic-input[type="text"],
+.basic-input[type="email"] {
   appearance: none;
   background: #fff;
   border: none;

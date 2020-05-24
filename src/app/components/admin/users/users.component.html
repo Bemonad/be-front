@@ -1,11 +1,10 @@
 <div id="adminUsersContainer" class="desktop-nav-avoider">
-  <div class="container">
-    <h1 class="mt-4">Utilisateurs</h1>
-    
+  <div class="container mb-4">
     <section *ngIf="action === 'show'">
+      <h1 class="mt-4 mb-2">Utilisateurs</h1>
       <div class="header">
-        <input type="text" class="default-input" placeholder="Filtre par email" [(ngModel)]="emailFilter" (ngModelChange)="filterUsers()">
-        <button class="add-user-button mt-2" (click)="changeAction('addUser', '')">
+        <input type="text" class="basic-input" placeholder="Filtrer par email" [(ngModel)]="emailFilter" (ngModelChange)="filterUsers()">
+        <button class="add-user-button" (click)="changeAction('addUser', '')">
           <i class="fas fa-user-plus"></i>
         </button>
       </div>
@@ -30,58 +29,57 @@
     </section>
 
     <section *ngIf="action === 'addUser'">
-      <div>
-        <div>
-          <label for="firstName">Prénom</label>
-          <input id="firstName" type="text" [(ngModel)]="addUser.firstName" />
-        </div>
-        <div>
-          <label for="lastName">Nom</label>
-          <input id="lastName" type="text" [(ngModel)]="addUser.lastName" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" type="text" [(ngModel)]="addUser.email" />
-        </div>
-        <div>
-          <label for="role">Role</label>
-          <select name="role" id="role" [(ngModel)]="addUser.role">
-            <option value="user" selected>Utilisateur</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-        <div>
-          <button (click)="addUserAction()">Ajouter</button>
-          <button (click)="changeAction('show', '')">Annuler</button>
-        </div>
+      <h1 class="mt-4 mb-2">Ajouter un utilisateur</h1>
+      <div class="input-container">
+        <label for="firstName">Prénom</label>
+        <input id="firstName" class="border-input" type="text" placeholder="Prénom" [(ngModel)]="addUser.firstName" />
+      </div>
+      <div class="input-container">
+        <label for="lastName">Nom</label>
+        <input id="lastName" class="border-input" type="text" placeholder="Nom" [(ngModel)]="addUser.lastName" />
+      </div>
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input id="email" class="border-input" type="email" placeholder="Email" [(ngModel)]="addUser.email" />
+      </div>
+      <div class="input-container">
+        <!-- felix@TODO: Use dropdown select as in /my-bookings -->
+        <label for="role">Role</label>
+        <select name="role" id="role" [(ngModel)]="addUser.role">
+          <option value="user">Utilisateur</option>
+          <option value="admin">Administrateur</option>
+        </select>
+      </div>
+      <div class="buttons-container">
+        <button class="confirm-button" (click)="addUserAction()">Ajouter</button>
+        <button class="cancel-button" (click)="changeAction('show', '')">Annuler</button>
       </div>
     </section>
 
     <section *ngIf="action === 'editUser'">
-      <div>
-        <div>
-          <label for="firstN">Prénom</label>
-          <input id="firstN" type="text" [(ngModel)]="userToEdit.firstName" />
-        </div>
-        <div>
-          <label for="lastName">Nom</label>
-          <input id="lastN" type="text" [(ngModel)]="userToEdit.lastName" />
-        </div>
-        <div>
-          <label for="mail">Email</label>
-          <input id="mail" type="text" [(ngModel)]="userToEdit.email" />
-        </div>
-        <div>
-          <label for="rol">Role</label>
-          <select name="rol" id="rol" [(ngModel)]="userToEdit.role">
-            <option value="user">Utilisateur</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
-        <div>
-          <button (click)="editUserAction()">Mettre à jour</button>
-          <button (click)="changeAction('show', '')">Annuler</button>
-        </div>
+      <h1 class="mt-4 mb-2">Éditer un utilisateur</h1>
+      <div class="input-container">
+        <label for="firstName">Prénom</label>
+        <input id="firstName" class="border-input" type="text" [(ngModel)]="userToEdit.firstName" />
+      </div>
+      <div class="input-container">
+        <label for="lastName">Nom</label>
+        <input id="lastName" class="border-input" type="text" [(ngModel)]="userToEdit.lastName" />
+      </div>
+      <div class="input-container">
+        <label for="email">Email</label>
+        <input id="email" class="border-input" type="text" [(ngModel)]="userToEdit.email" />
+      </div>
+      <div class="input-container">
+        <label for="role">Role</label>
+        <select name="role" id="role" [(ngModel)]="userToEdit.role">
+          <option value="user">Utilisateur</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+      <div class="buttons-container">
+        <button class="confirm-button" (click)="editUserAction()">Mettre à jour</button>
+        <button class="cancel-button" (click)="changeAction('show', '')">Annuler</button>
       </div>
     </section>
   </div>

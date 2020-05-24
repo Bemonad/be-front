@@ -51,4 +51,25 @@
   .spacer {
     width: 18px;
   }
+
+  .buttons-container {
+    text-align: center;
+
+    .confirm-button {
+      @include default-button();
+      background-color: $bemonad-green !important;
+      border-radius: $default-border-radius !important;
+      color: #fff !important;
+      padding: $spacing-basis * 1 $spacing-basis * 2 !important;
+      margin-right: $spacing-basis * 2;
+    }
+
+    .cancel-button {
+      @include default-button();
+      background-color: $bemonad-red !important;
+      border-radius: $default-border-radius !important;
+      color: #fff !important;
+      padding: $spacing-basis * 1 $spacing-basis * 2 !important;
+    }
+  }
 }
