@@ -30,7 +30,7 @@
 <nav id="desktopTabletNavContainer" class="hide-xs px-2">
   <a class="semi-bold home-link" [routerLink]="['/']">Bemonad</a>
   <div>
-    <div class="rooms-dropdown mr-1" ngbDropdown>
+    <div class="rooms-dropdown mr-2" ngbDropdown>
       <button class="rooms-trigger" ngbDropdownToggle>
         Les Salles
       </button>
@@ -41,10 +41,18 @@
       </div>
     </div>
     <ul class="links-list">
-      <li class="mr-1"><a *ngIf="!currentUser">Demander un accès</a></li>
-      <li class="mr-1"><a *ngIf="currentUser" [routerLink]="['/booking']">Réserver une salle</a></li>
-      <li><a *ngIf="!currentUser" [routerLink]="['/login']">Se connecter</a></li>
-      <li><a *ngIf="currentUser" [routerLink]="['/logout']">Se déconnecter</a></li>
+      <li *ngIf="!currentUser" class="mr-2">
+        <a>Demander un accès</a>
+      </li>
+      <li *ngIf="currentUser" class="mr-2">
+        <a [routerLink]="['/booking']">Réserver une salle</a>
+      </li>
+      <li *ngIf="!currentUser">
+        <a [routerLink]="['/login']">Se connecter</a>
+      </li>
+      <li *ngIf="currentUser">
+        <a [routerLink]="['/logout']">Se déconnecter</a>
+      </li>
     </ul>
   </div>
 </nav>

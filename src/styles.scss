@@ -122,6 +122,10 @@ a {
 // style
 .page-title {
   padding: ($spacing-basis * 10) 0 ($spacing-basis * 5);
+  
+  @include tablet {
+    padding: ($spacing-basis * 25) 0 ($spacing-basis * 15);
+  }
 }
 
 .text-left {
