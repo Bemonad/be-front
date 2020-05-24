@@ -1,4 +1,4 @@
-<h1>Tous les utilisateurs</h1>
+<h1 class="page-title">Tous les utilisateurs</h1>
 <button *ngIf="action === 'show'" (click)="changeAction('addUser', '')">Ajouter un utilisateur</button>
 
 <section *ngIf="action === 'show'">
@@ -8,6 +8,7 @@
     <span>{{ user.email }}</span>
     <span>{{ user.role }}</span>
     <button (click)="changeAction('editUser', user)">Modifier</button>
+    <button (click)="changeAction('deleteUser', user)">Supprimer</button>
   </div>
 </section>
 

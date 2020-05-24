@@ -11,6 +11,19 @@
           <a [routerLink]="['/rooms']" [queryParams]="{ id: room._id }" (click)="toggleMobileMenu()">{{room.name}}</a>
         </li>
       </ul>
+    <div *ngIf="currentUser">
+      <div *ngIf="currentUser.role ==='admin'">
+        <h2 class="mb-2">Administration</h2>
+          <ul class="pl-2">
+            <li class="pb-1">
+              <a [routerLink]="['/admin/users']" (click)="toggleMobileMenu()">Gestion des utilisateurs</a>
+            </li>
+            <li class="pb-1">
+              <a [routerLink]="['/admin/bookings']" (click)="toggleMobileMenu()">Liste des réservations</a>
+            </li>
+          </ul>
+      </div>
+    </div>
     <h2 class="mb-2">Réserver</h2>
     <div class="pl-2">
       <ul>
@@ -20,7 +33,7 @@
         </li>
         <li class="pb-1">
           <a (click)="toggleMobileMenu()" *ngIf="!currentUser" [routerLink]="['/login']">Se connecter</a>
-          <a (click)="toggleMobileMenu()" *ngIf="currentUser" [routerLink]="['/logout']">Se déconnecter</a>
+          <a (click)="toggleMobileMenu(true)" *ngIf="currentUser">Se déconnecter</a>
         </li>
       </ul>
     </div>
