@@ -31,11 +31,12 @@ export class NavComponent implements OnInit {
     });
   }
 
-  toggleMobileMenu = (logout = false) => {
-    if (logout) {
-      this.userService.logout();
-    }
-    this.mobileNav.isOpen = !this.mobileNav.isOpen;
+  toggleMobileMenu = (value?: boolean) => {
+    this.mobileNav.isOpen = value ? value : !this.mobileNav.isOpen
   }
 
+  logout() {
+    this.userService.logout();
+    this.toggleMobileMenu();
+  }
 }
