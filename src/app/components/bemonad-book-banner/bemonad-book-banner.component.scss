@@ -33,6 +33,7 @@
     .button {
       @include default-button();
       @include skewmorphic-shadow(#47FACC, #05A47A);
+      @include no-link-style();
       background-color: $bemonad-green;
       display: inline-block;
       padding: 8px 16px !important;

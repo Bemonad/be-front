@@ -8,7 +8,18 @@
     </div>
     <div class="button-container mb-4">
       <a *ngIf="currentUser" class="button" [routerLink]="['/booking']" [queryParams]="{roomFrom: room._id}">Réserver cette salle</a>
-      <a *ngIf="!currentUser" class="button">Demander un accès</a>
+      <a
+        *ngIf="!currentUser"
+        class="button"
+        href="mailto: bemonad@bnp.fr
+        ?subject=Demande d'accès
+        &body=Bonjour,%0D%0AVoici mes informations pour une demande d'accès à la plateforme Bemonad%0D%0A%0D%0A
+        Nom :%0D%0A
+        Prénom :%0D%0A
+        email :%0D%0A%0D%0ACordialement"
+      >
+        Demander un accès
+      </a>
     </div>
   </div>
   <img src="assets/images/lemonade.jpg" alt="" /> <!-- felix@TODO: insert room image -->
