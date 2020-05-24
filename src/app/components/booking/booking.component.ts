@@ -120,8 +120,9 @@ export class BookingComponent implements OnInit {
 
     this.userService.getCurrentUser().subscribe( user => {
       if (user) {
+        console.log(user._id)
         this.currentBooking = {
-          user_id: user._id,
+          user: user._id,
           room: '',
           start: null,
           end: null,

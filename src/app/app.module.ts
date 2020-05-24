@@ -24,6 +24,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { UserService } from './services/user.service';
 import { UsersComponent } from './components/admin/users/users.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BookingsComponent } from './components/admin/bookings/bookings.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -43,7 +44,8 @@ export function tokenGetter() {
     BemonadCitationComponent,
     BemonadBookBannerComponent,
     NavComponent,
-    UsersComponent
+    UsersComponent,
+    BookingsComponent
   ],
   imports: [
     BrowserModule,

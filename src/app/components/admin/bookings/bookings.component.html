@@ -1,0 +1,36 @@
+<div id="myBookingsContainer">
+  <div class="container desktop-nav-avoider my-bookings-content">
+    <h1 class="page-title text-center">Toutes les réservations</h1>
+
+    <div class="my-bookings-list">
+      <!-- felix@TODO: ng-class beneath is quite dirty, that should be cleaned -->
+      <div class="booking-item mb-2" *ngFor="let booking of allBookings" [ngClass]="{
+        'bg-passed': moment(booking.end).isBefore() === true && booking.status === true,
+        'bg-to-come': moment(booking.end).isBefore() === false && booking.status === true,
+        'bg-canceled': booking.status === false
+      }">
+        <div class="date-container">
+          <span class="day semi-bold">{{moment(booking.start).format('DD')}}</span>
+          <span class="month">{{moment(booking.start).format('MMM')}}</span>
+        </div>
+        <div class="content p-1">
+          <div class="semi-bold mb-1 header">
+            {{ booking.room.name }}
+            <span class="ml-1" *ngIf="booking.status === false">Annulé</span>
+          </div>
+          <div class="mb-1">
+            {{  moment(booking.start).format('DD/MM/YYYY') }} | {{  moment(booking.start).format('HH[h]mm') }} - {{ moment(booking.end).format('HH[h]mm') }}
+          </div>
+          <div class="mb-3">
+            {{ booking.number_people }} personne<span *ngIf="booking.number_people > 1">s</span>
+          </div>
+          <div>
+            {{ booking.user.firstName }} {{ booking.user.lastName }}
+          </div><div>
+            {{ booking.user.email }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

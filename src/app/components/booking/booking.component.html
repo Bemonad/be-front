@@ -9,7 +9,7 @@
   </div>
 
   <div>
-    <select class="room-select center py-1 pl-2" *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.id_room">
+    <select class="room-select center py-1 pl-2" *ngIf="rooms" id="salle" [(ngModel)]="currentBooking.room">
       <option disabled selected>Select a room</option>
       <option
         *ngFor="let room of rooms"

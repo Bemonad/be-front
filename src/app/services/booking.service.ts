@@ -4,7 +4,7 @@ import { environment } from '../../environments/environment';
 import { UserService } from './user.service';
 
 export interface BookingData {
-  user_id: any;
+  user: string;
   room?: string;
   start?: number;
   end?: number;
@@ -30,5 +30,9 @@ export class BookingService {
 
   getMyBookings(user) {
     return this.http.get(`${environment.API_URL}/bookings/?user=${user._id}`);
+  }
+
+  getAllBookings() {
+    return this.http.get(`${environment.API_URL}/bookings`);
   }
 }
