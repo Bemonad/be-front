@@ -93,4 +93,10 @@ export class UserService {
     return this.http.put(`${this.apiUrl}/users`, body, this.httpOptionsJson);
   }
 
+  logout() {
+    localStorage.removeItem('access_token');
+    this.currentUser.next(null);
+    this.router.navigate(['']);
+  }
+
 }

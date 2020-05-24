@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomService } from '../../services/room.service';
-import { UserService } from '../../services/user.service';
+import { UserService, UserData } from '../../services/user.service';
 
 @Component({
   selector: 'benomad-nav',
@@ -10,9 +10,12 @@ import { UserService } from '../../services/user.service';
 export class NavComponent implements OnInit {
   public mobileNav: { isOpen: boolean };
   public rooms: any;
-  public currentUser: any;
+  public currentUser: UserData;
 
-  constructor(private roomService: RoomService, private userService: UserService) {
+  constructor(
+    private roomService: RoomService,
+    private userService: UserService
+  ) {
     this.mobileNav = {
       isOpen: false,
     };
@@ -28,7 +31,10 @@ export class NavComponent implements OnInit {
     });
   }
 
-  toggleMobileMenu = () => {
+  toggleMobileMenu = (logout = false) => {
+    if (logout) {
+      this.userService.logout();
+    }
     this.mobileNav.isOpen = !this.mobileNav.isOpen;
   }
 
