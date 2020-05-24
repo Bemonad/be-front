@@ -2,6 +2,11 @@
 @import "vars";
 
 #booking-page {
+  @include desktop {
+    width: 500px;
+    margin: auto;
+  }
+
   h2 {
     position: relative;
     margin-left: 10px;

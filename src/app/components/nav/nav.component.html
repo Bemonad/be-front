@@ -53,6 +53,21 @@
         </button>
       </div>
     </div>
+    <div *ngIf="currentUser" class="rooms-dropdown mr-2" ngbDropdown>
+      <div  *ngIf="currentUser.role ==='admin'">
+        <button class="rooms-trigger" ngbDropdownToggle>
+          Administration
+        </button>
+        <div class="pt-1" ngbDropdownMenu>
+          <button class="pb-1" ngbDropdownItem>
+            <a [routerLink]="['/admin/users']">Gestion des utilisateurs</a>
+          </button>
+          <button class="pb-1" ngbDropdownItem>
+            <a [routerLink]="['/admin/bookings']">Liste des réservations</a>
+          </button>
+        </div>
+      </div>
+    </div>
     <ul class="links-list">
       <li *ngIf="!currentUser" class="mr-2">
         <a>Demander un accès</a>
@@ -64,7 +79,7 @@
         <a [routerLink]="['/login']">Se connecter</a>
       </li>
       <li *ngIf="currentUser">
-        <a [routerLink]="['/logout']">Se déconnecter</a>
+        <a (click)="toggleMobileMenu(true)" *ngIf="currentUser">Se déconnecter</a>
       </li>
     </ul>
   </div>
