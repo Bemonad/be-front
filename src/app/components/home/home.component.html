@@ -42,5 +42,6 @@
     </div>
   </div>
 
-  <bemonad-book-banner></bemonad-book-banner>
+  <bemonad-book-banner *ngIf="!currentUser"></bemonad-book-banner>
+  <bemonad-citation></bemonad-citation>
 </div>

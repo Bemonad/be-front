@@ -1,11 +1,30 @@
 @import "vars";
+@import "mixins";
 
 .citation {
 
+  @include desktop {
+    margin: $spacing-basis * 3 auto $spacing-basis * 10!important;
+    width: 70%;
+  }
+
+  @include tablet {
+    margin: $spacing-basis * 3 auto $spacing-basis * 10!important;
+    width: 70%;
+  }
+  
   .quote-icon-top, .quote-icon-bot {
     height: 30px;
     width: auto;
     display: inline-block;
+    
+    @include tablet {
+      height: 40px;
+    }
+
+    @include tablet {
+      height: 40px;
+    }
   }
 
   .quote-icon-bot {
