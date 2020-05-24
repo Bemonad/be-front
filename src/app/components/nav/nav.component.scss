@@ -1,3 +1,10 @@
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/_mixins";
+@import "~bootstrap/scss/_dropdown";
+
+// Above are imports for dropdowns
+
 @import "vars";
 @import "mixins";
 
@@ -92,4 +99,32 @@
   justify-content: space-between;
   align-items: center;
   background-color: $bemonad-yellow;
+
+  .home-link {
+    @include no-link-style();
+    @include font-size(16);
+  }
+
+  .rooms-dropdown {
+    display: inline-block;
+
+    .rooms-trigger {
+      background-color: transparent;
+      border: none;
+      @include font-size(0,0, 16); // Override bootstrap value
+      font-family: 'Open Sans'; // Override bootstrap value
+    }
+  }
+
+  .links-list {
+    display: inline-block;
+
+    li {
+      display: inline-block;
+
+      a {
+        @include link-style($default-text-color)
+      }
+    }
+  }
 }

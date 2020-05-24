@@ -19,7 +19,7 @@
           <a (click)="toggleMobileMenu()" *ngIf="currentUser" [routerLink]="['/booking']">Réserver une salle</a>
         </li>
         <li class="pb-1">
-          <a (click)="toggleMobileMenu()" [routerLink]="['/login']" *ngIf="!currentUser">Se connecter</a>
+          <a (click)="toggleMobileMenu()" *ngIf="!currentUser" [routerLink]="['/login']">Se connecter</a>
           <a (click)="toggleMobileMenu()" *ngIf="currentUser" [routerLink]="['/logout']">Se déconnecter</a>
         </li>
       </ul>
@@ -28,6 +28,23 @@
 </nav>
 
 <nav id="desktopTabletNavContainer" class="hide-xs px-2">
-  <div class="bold">Bemonad</div>
-  <div>desktop menu content</div>
+  <a class="semi-bold home-link" [routerLink]="['/']">Bemonad</a>
+  <div>
+    <div class="rooms-dropdown mr-1" ngbDropdown>
+      <button class="rooms-trigger" ngbDropdownToggle>
+        Les Salles
+      </button>
+      <div class="pt-1" ngbDropdownMenu>
+        <button class="pb-1" *ngFor="let room of rooms" ngbDropdownItem>
+          <a [routerLink]="['/rooms']" [queryParams]="{ id: room._id }">{{room.name}}</a>
+        </button>
+      </div>
+    </div>
+    <ul class="links-list">
+      <li class="mr-1"><a *ngIf="!currentUser">Demander un accès</a></li>
+      <li class="mr-1"><a *ngIf="currentUser" [routerLink]="['/booking']">Réserver une salle</a></li>
+      <li><a *ngIf="!currentUser" [routerLink]="['/login']">Se connecter</a></li>
+      <li><a *ngIf="currentUser" [routerLink]="['/logout']">Se déconnecter</a></li>
+    </ul>
+  </div>
 </nav>
