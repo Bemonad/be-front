@@ -122,7 +122,7 @@ a {
 // style
 .page-title {
   padding: ($spacing-basis * 10) 0 ($spacing-basis * 5);
-  
+
   @include tablet {
     padding: ($spacing-basis * 25) 0 ($spacing-basis * 15);
   }
@@ -165,6 +165,7 @@ a {
 }
 
 .border-input[type="email"],
+.border-input[type="text"],
 .border-input[type="password"] {
   appearance: none;
   background: none;
@@ -185,6 +186,32 @@ a {
 
   &.red-border {
     border-color: $bemonad-red;
+  }
+}
+
+.basic-input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $spacing-basis * 2;
+
+  label {
+    margin-bottom: $spacing-basis;
+  }
+}
+
+.basic-input[type="text"],
+.basic-input[type="email"] {
+  appearance: none;
+  background: #fff;
+  border: none;
+  border: 1px solid $light-grey;
+  padding: $spacing-basis;
+  border-radius: 5px;
+
+  &::placeholder {
+    font-style: italic;
+    @include font-size(13);
+    color: $dark-grey;
   }
 }
 

@@ -35,6 +35,7 @@
     border-radius: $default-border-radius * 2;
     padding: $spacing-basis * 2 $spacing-basis * 4;
     margin-bottom: $spacing-basis; // NOTE: To let a bit space for the shadow
+    cursor: pointer;
   }
 }
 
