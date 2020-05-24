@@ -188,5 +188,20 @@ a {
   }
 }
 
+.default-input {
+  appearance: none;
+  background: #fff;
+  border: none;
+  border: 1px solid $light-grey;
+  padding: $spacing-basis;
+  border-radius: 5px;
+
+  &::placeholder {
+    font-style: italic;
+    @include font-size(13);
+    color: $dark-grey;
+  }
+}
+
 /* Importing Bootstrap SCSS file. */
 // @import '~bootstrap/scss/bootstrap'; // NOTE: Reminder => Boostrap style is NOT imported intentionally, do not uncomment this line (neither delete it)
