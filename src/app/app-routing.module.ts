@@ -8,7 +8,9 @@ import { BookingComponent } from './components/booking/booking.component';
 import { UsersComponent } from './components/admin/users/users.component';
 import { BookingsComponent } from './components/admin/bookings/bookings.component';
 import { MyBookingsComponent } from './components/my-bookings/my-bookings.component';
+
 import { AuthGardService} from './services/auth-gard.service';
+import { AuthGardAdminService } from './services/auth-gard-admin.service';
 
 const routes: Routes = [
   {
@@ -35,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: 'admin',
-    canActivate: [AuthGardService],
+    canActivate: [AuthGardAdminService],
     children: [
       {
         path: 'users',
