@@ -20,7 +20,7 @@
 }
 
 /* Generate a skewmorphic shadow. Both params are optionnal.  */
-@mixin skewmorphic-shadow($left-color: $near-white, $right-color: $grey) {
+@mixin skewmorphic-shadow($left-color: #fff, $right-color: $grey) {
   box-shadow: -9px -9px 16px $left-color, 9px 9px 16px $right-color;
 }
 

@@ -215,5 +215,10 @@ a {
   }
 }
 
+input[type="date"] { // felix@FIXME: dirty quick fix
+  font-family: 'Open Sans';
+  padding-left: $spacing-basis * 5;
+}
+
 /* Importing Bootstrap SCSS file. */
 // @import '~bootstrap/scss/bootstrap'; // NOTE: Reminder => Boostrap style is NOT imported intentionally, do not uncomment this line (neither delete it)

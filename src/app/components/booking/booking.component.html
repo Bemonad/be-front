@@ -31,7 +31,7 @@
   <div>
     <label class="mb-2" for="peopleNb">Combien de personnes attendez-vous ?</label>
     <input
-      class="py-1 pl-2"
+      class="p-1 text-center"
       type="text"
       id="peopleNb"
       [(ngModel)]="currentBooking.number_people"
@@ -40,8 +40,7 @@
 
   <div>
     <label class="mb-2">Combien de temps comptez vous-rester ?</label>
-    <select class="py-1 pl-2" name="" id="duration" [(ngModel)]="duration">
-      <option disabled selected>Durée</option>
+    <select class="py-1 pl-2 text-center" name="" id="duration" [(ngModel)]="duration">
       <option value="1">1h</option>
       <option value="2">2h</option>
       <option value="3">3h</option>
@@ -82,6 +81,6 @@
   </div>
 
   <div class="button-wrapper">
-    <button class="my-3 py-2 px-5" (click)="book()">Valider</button>
+    <button class="my-3 py-2 px-5 bold" (click)="book()">Valider</button>
   </div>
 </section>
