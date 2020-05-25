@@ -20,6 +20,7 @@ export class RoomComponent implements OnInit {
       description: '',
       capacity_sit: '',
       capacity_stand: '',
+      image: ''
     };
   }
 

@@ -8,7 +8,7 @@
 
   <div class="main-banner">
     <!-- @TODO: Maybe implement a slider here -->
-    <img src="assets/images/lemonade.jpg" alt="" />
+    <img src="assets/images/main.jpg" alt="" />
 
     <div class="banner-content container py-5">
       <h2 class="banner-title semi-bold text-center">
@@ -22,7 +22,7 @@
 
   <div class="container pt-7 cards-container">
     <div *ngFor="let room of rooms" class="card-item mb-7">
-      <img src="assets/images/lemonade.jpg" alt="Image de la salle {{room.name}}" />
+      <img [src]="'assets/images/' + room.image" alt="Image de la salle {{room.name}}" />
       <div class="content p-2">
         <h3 class="semi-bold mb-1">{{ room.name }}</h3>
         <div class="mb-1">

@@ -8,6 +8,7 @@ export interface RoomData {
   description: string;
   capacity_sit: string;
   capacity_stand: string;
+  image: string;
 }
 
 @Injectable({
