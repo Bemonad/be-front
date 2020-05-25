@@ -11,6 +11,7 @@ import * as moment from "moment";
   styleUrls: ["./booking.component.scss"],
 })
 export class BookingComponent implements OnInit {
+  public moment: any = moment;
   public preselectedRoomId: string;
   public rooms: any;
   public currentBooking: BookingData = {
@@ -105,6 +106,8 @@ export class BookingComponent implements OnInit {
     label: string;
   }>;
   public duration: string = "1";
+  public bookingDone: boolean = false;
+  public booking: any = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -125,7 +128,7 @@ export class BookingComponent implements OnInit {
     });
     this.userService.getCurrentUser().subscribe((user) => {
       if (user) {
-        this.currentBooking.user = user.id;
+        this.currentBooking.user = user._id;
       }
     });
   }
@@ -161,8 +164,10 @@ export class BookingComponent implements OnInit {
       this.currentBooking.start,
       this.duration
     );
-
-    this.bookingService.registerBook(this.currentBooking);
+    this.bookingService.registerBook(this.currentBooking).subscribe( booking => {
+      this.booking = booking;
+      this.bookingDone = true;
+    });
   }
 
   setSit() {

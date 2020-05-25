@@ -33,7 +33,7 @@
   }
 
   h2:after {
-    content:"";
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
@@ -52,7 +52,11 @@
     margin: auto;
   }
 
-  .room-select, #duration, #startHour, #startMin, #peopleNb {
+  .room-select,
+  #duration,
+  #startHour,
+  #startMin,
+  #peopleNb {
     @include skewmorphic-shadow();
     border-radius: 12px;
     font-size: 16px;
@@ -60,7 +64,9 @@
     background-color: $lightest-grey;
   }
 
-  #startHour, #startMin, #peopleNb {
+  #startHour,
+  #startMin,
+  #peopleNb {
     width: 55px;
   }
 
@@ -85,7 +91,8 @@
     }
   }
 
-  .sit-left, .sit-right {
+  .sit-left,
+  .sit-right {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -120,7 +127,57 @@
     color: $light-grey;
   }
 
-  .fa-check-square, .fa-square {
+  .fa-check-square,
+  .fa-square {
     @include skewmorphic-shadow();
+  }
+}
+
+#booking-page-success {
+
+  .top-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .line {
+      width: calc(30% - 20px);
+      height: 4px;
+      background-color: $bemonad-green;
+    }
+
+    .tick-container {
+      border-radius: 50%;
+      // height: $spacing-basis * 10;
+      width: 40%;
+      // padding-left: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 8px solid $bemonad-green;
+
+      &:after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+
+      i {
+        @include font-size(56);
+        color: $bemonad-green;
+      }
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    justify-content: space-around;
+
+    .button {
+      @include default-button();
+      @include skewmorphic-shadow();
+      padding: $spacing-basis * 1 $spacing-basis * 2!important;
+      border-radius: $default-border-radius!important;
+    }
   }
 }

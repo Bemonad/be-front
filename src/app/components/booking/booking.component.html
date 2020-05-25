@@ -1,4 +1,4 @@
-<section id="booking-page" class="container">
+<section id="booking-page" class="container" *ngIf="!bookingDone">
   <h2 class="mb-2"><span>Salle</span></h2>
   <div>
     <input class="center" type="date" id="date"
@@ -82,5 +82,28 @@
 
   <div class="button-wrapper">
     <button class="my-3 py-2 px-5 bold" (click)="book()">Valider</button>
+  </div>
+</section>
+
+<section id="booking-page-success" class="container" *ngIf="bookingDone">
+  <div class="top-container pt-8 mb-4">
+    <div class="line"></div>
+    <div class="tick-container">
+      <i class="fas fa-check"></i>
+    </div>
+    <div class="line"></div>
+  </div>
+
+  <h2 class="mb-4 text-center">Salle réservée !</h2>
+
+  <div class="text-center mb-4">
+    Le <span class="semi-bold">{{ moment(booking.start).format('DD/MM/YYYY') }}</span>,<br/>
+    Vous disposerez de la salle <span class="semi-bold">{{booking.room.name}}</span><br/>
+    de <span class="semi-bold">{{ moment(booking.start).format('HH[h]mm') }}</span> à <span class="semi-bold">{{ moment(booking.end).format('HH[h]mm') }}</span>.
+  </div>
+
+  <div class="buttons-container mb-4">
+    <div class="button semi-bold" [routerLink]="['/']">Retour à l'accueil</div>
+    <div class="button semi-bold" [routerLink]="['/my-bookings']">Mes réservations</div>
   </div>
 </section>

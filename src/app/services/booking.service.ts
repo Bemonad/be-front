@@ -23,9 +23,7 @@ export class BookingService {
   }
 
   registerBook(bookData) {
-    this.http.post(`${environment.API_URL}/bookings`, bookData).subscribe( response =>
-      console.log(response)
-    );
+    return this.http.post(`${environment.API_URL}/bookings`, bookData);
   }
 
   getMyBookings(user) {

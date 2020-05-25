@@ -58,7 +58,6 @@ export class UsersComponent implements OnInit {
 
   addUserAction() {
     this.userService.createUser(this.addUser).subscribe((response) => {
-      console.log(response);
       this.userService.getAllUsers().subscribe((users) => {
         this.allUsers = users;
         this.resetFilter();
