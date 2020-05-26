@@ -8,15 +8,19 @@
 
   .illustration {
     position: absolute;
+
+    @include desktop() {
+      width: 40%;
+    }
   }
 
   .right-background {
     background-color: $bemonad-green;
     position: absolute;
     width: 78%;
-    height: 250%;
-    top: -100px;
-    right: -25px;
+    height: 350%;
+    top: -148px;
+    right: -32px;
     transform: rotate(16deg);
     box-sizing: content-box;
   }
