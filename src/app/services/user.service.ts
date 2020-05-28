@@ -43,7 +43,7 @@ export class UserService {
   }
 
   register(user, password) {
-    const body = {firstName: user.firstName, lastName: user.lastName, password, token: user.token};
+    const body = {firstName: user.firstName, lastName: user.lastName, password, _id: user._id};
 
     return this.http.put<UserData>(`${this.apiUrl}/users`, body, this.httpOptionsJson);
   }
